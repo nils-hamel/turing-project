@@ -1,0 +1,164 @@
+#!/bin/bash
+
+## turing project
+##
+##     Nils Hamel - nils.hamel@bluewin.ch
+##     Copyright (c) 2016-2017 DHLAB, EPFL
+##
+## This program is free software: you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation, either version 3 of the License, or
+## (at your option) any later version.
+##
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+##
+##  script - script variables
+##
+
+ML_IMAGES=""
+ML_FORMAT="jpg"
+ML_DSPATH=""
+ML_ISCALE="0.5"
+ML_ICOUNT="16"
+ML_IWIDTH="64"
+
+##
+##  script - arguments and parameters
+##
+
+function ml_args() {
+
+    # parsing arguments and parameters #
+    while [[ ${#} > 0 ]]; do
+
+        # read argument #
+        ml_arg="${1}"; shift
+
+        # switch on argument #
+        case ${ml_arg} in
+
+            --photo-path|-i)
+                ML_IMAGES="${1}"
+            shift;;
+
+            --photo-format|-f)
+                ML_FORMAT="${1}"
+            shift;;
+
+            --image-path|-o)
+                ML_DSPATH="${1}"
+            shift;;
+
+            --scales|-s)
+                ML_ISCALE="${1}"
+            shift;;
+
+            --count|-c)
+                ML_ICOUNT="${1}"
+            shift;;
+
+            --width|-w)
+                ML_IWIDTH="${1}"
+            shift;;
+
+        esac
+
+    done
+
+}
+
+##
+##  script - mathematics
+##
+
+function ml_max() {
+
+    # compare values #
+    if (( ${1} > ${2} )); then
+
+        # return first value #
+        echo ${1}
+
+    else
+
+        # return second value #
+        echo ${2}
+
+    fi
+
+}
+
+##
+##  script - main
+##
+
+# arguments and parameters #
+ml_args ${@}
+
+# indexation variables #
+ml_index=$(( 0 ))
+
+# analyse scales parameters #
+ml_scales="${ML_ISCALE//,/ }"
+
+# parsing directory #
+for ml_image in ${ML_IMAGES}/*.${ML_FORMAT}; do
+
+    # retrieve image dimensions #
+    ml_w=$(identify -format "%w" ${ml_image})
+    ml_h=$(identify -format "%h" ${ml_image})
+
+    # retrieve maximum dimension #
+    ml_d=$(ml_max ${ml_w} ${ml_h})
+
+    # display information #
+    echo "processing image $(basename ${ml_image}) (${ml_w}x${ml_h}) ..."
+
+    # initialise image-magick directive #
+    ml_directive="${ml_image} -write mpr:crop +delete -respect-parentheses"
+
+    # parsing scales #
+    for ml_scale in ${ml_scales}; do
+
+        # compute crop width #
+        ml_c=$(bc -l <<< "scale=0;(${ml_scale}*${ml_d})/1")
+
+        # compute random range #
+        ml_u=$(( ${ml_w} - ${ml_c} - 1 ))
+        ml_v=$(( ${ml_h} - ${ml_c} - 1 ))
+
+        # parsing image crops #
+        for ml_crop in $(seq 1 ${ML_ICOUNT}); do
+
+            # create crop random coordinates #
+            ml_x=$(( ${RANDOM} % ${ml_u} ))
+            ml_y=$(( ${RANDOM} % ${ml_v} ))
+
+            # create crop exportation path #
+            ml_p="${ML_DSPATH}/image-$(printf '%06d' ${ml_index}).png"
+
+            # create image-magick crop line #
+            ml_directive="${ml_directive} ( mpr:crop -crop ${ml_c}x${ml_c}+${ml_x}+${ml_y} +repage -resize ${ML_IWIDTH}x${ML_IWIDTH} +write ${ml_p} )"
+
+            # update index #
+            ml_index=$(( ${ml_index} + 1 ))
+
+        done
+
+    done
+
+    # terminate image-magick directive #
+    ml_directive="${ml_directive} null:"
+
+    # execute image-magick directive #
+    convert ${ml_directive}
+
+done
+
