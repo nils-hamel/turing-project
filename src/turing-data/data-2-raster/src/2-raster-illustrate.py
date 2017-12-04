@@ -22,6 +22,7 @@ import argparse
 import numpy
 import os
 import sys
+import random
 import matplotlib.image as ml_image
 
 ##
@@ -32,9 +33,13 @@ import matplotlib.image as ml_image
 ml_apar = argparse.ArgumentParser()
 
 # argument directive #
-ml_apar.add_argument( '-i', '--dataset', required=True, type=str, help='dataset path' )
-ml_apar.add_argument( '-r', '--size'   , required=True, type=int, help='dataset resolution' )
-ml_apar.add_argument( '-o', '--image'  , required=True, type=str, help='dataset images directory' )
+ml_apar.add_argument( '-i', '--dataset', type=str, help='dataset path'    )
+ml_apar.add_argument( '-w', '--size'   , type=int, help='dataset witdh'   )
+ml_apar.add_argument( '-o', '--image'  , type=str, help='image path'      )
+ml_apar.add_argument( '-c', '--count'  , type=int, help='selection count' )
+
+# read argument and parameter #
+ml_args = ml_apar.parse_args()
 
 ##
 ##  script - image exportation
@@ -85,21 +90,15 @@ def ml_import( ml_path, ml_resolution ):
 ##  script - main function
 ##
 
-# read argument and parameter #
-ml_args = ml_apar.parse_args()
-
 # import data #
 ml_data = ml_import( ml_args.dataset, ml_args.size )
 
-# parsing data #
-for ml_index in range( ml_data.shape[0] ):
+# selecting random dataset image #
+for ml_parse in range( ml_args.count ):
 
-    # display information #
-    print( 'turing : exprting image ' + str( ml_index ) + '...' )
+    # create random index #
+    ml_index = random.randint( 0, ml_data.shape[0] - 1 )
 
-    # export image #
-    ml_export( ml_data[ml_index,:,:], ml_args.image + '/image-' + str( ml_index ).zfill(6) + '.png' )
-
-# display information #
-print( 'turing : done' )
-
+    # export selected image #
+    ml_export( ml_data[ml_index], ml_args.image + '/image-{:06d}.png'.format( ml_parse ) )
+    

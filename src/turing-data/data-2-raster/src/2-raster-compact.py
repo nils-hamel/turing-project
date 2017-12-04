@@ -32,8 +32,11 @@ import matplotlib.image as ml_image
 ml_apar = argparse.ArgumentParser()
 
 # argument directive #
-ml_apar.add_argument( '-i', '--image'  , required=True, type=str, help='dataset images directory' )
+ml_apar.add_argument( '-i', '--image'  , required=True, type=str, help='image path'   )
 ml_apar.add_argument( '-o', '--dataset', required=True, type=str, help='dataset path' )
+
+# read argument and parameter #
+ml_args = ml_apar.parse_args()
 
 ##
 ##  script - image exportation
@@ -87,9 +90,6 @@ def ml_normalise( ml_data ):
 ##
 ##  script - main function
 ##
-
-# read argument and parameter #
-ml_args = ml_apar.parse_args()
 
 # enumerate file in dataset directory #
 for ml_file in os.listdir( ml_args.image ):
