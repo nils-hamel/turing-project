@@ -122,7 +122,7 @@ ml_variables = tf.global_variables_initializer()
 ml_network = tf.train.Saver()
 
 # script mode #
-if ( ml_args.mode == 'train' ):
+if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
 
     # import data #
     ml_data = auto_data.ml_data_import( ml_args.input, ml_h_input )
@@ -138,6 +138,12 @@ if ( ml_args.mode == 'train' ):
 
     # tensorflow variable #
     ml_session.run( ml_variables )
+
+    # script mode #
+    if ( ml_args.mode == 'retrain' ):
+
+        # import network #
+        ml_network.restore( ml_session, ml_args.network )
 
     # network training : epochs #
     for ml_epoch in range( ml_args.epoch ):
