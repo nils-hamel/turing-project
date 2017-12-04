@@ -26,6 +26,7 @@ and with the following python3 modules :
 * matplotlib
 * argparse
 * tensorflow
+* random
 
 Install the TensorFlow module using the provided [instructions](https://www.tensorflow.org/install/).
 
