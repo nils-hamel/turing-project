@@ -27,7 +27,7 @@ import matplotlib.image as image
 ##  script - dataset import
 ##
 
-def ml_data_import( ml_path, ml_element_size ):
+def ml_data_import( ml_path, ml_size ):
 
     # check consistency #
     if ( os.path.exists( ml_path ) == False ):
@@ -51,7 +51,16 @@ def ml_data_import( ml_path, ml_element_size ):
     ml_data = numpy.multiply( ml_data, 1.0 / 255.0 )
 
     # return dataset #
-    return ml_data.reshape( -1, ml_element_size )
+    return ml_data.reshape( -1, ml_size, ml_size, 3 )
+
+##
+##  script - dataset format
+##
+
+def ml_data_format_y( ml_data ):
+
+    # contract to y format #
+    return 0.2126 * ml_data[:,:,:,0] + 0.7152 * ml_data[:,:,:,1] + 0.0722 * ml_data[:,:,:,2]
 
 ##
 ##  script - dataset shuffle
@@ -92,10 +101,13 @@ def ml_data_shuffle( ml_data, ml_index ):
 ##  script - dataset range
 ##
 
-def ml_data_split( ml_data, ml_proportion ):
+def ml_data_split( ml_data, ml_proportion, ml_batch_size ):
 
     # compute splitting index #
     ml_index = int( ml_data.shape[0] * ml_proportion )
+
+    # compute nearest batch multiple #
+    ml_index = int( ml_index / ml_batch_size ) * ml_batch_size
 
     # return splitted dataset #
     return ml_data[:ml_index], ml_data[ml_index:]

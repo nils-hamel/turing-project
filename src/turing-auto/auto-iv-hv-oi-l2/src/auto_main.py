@@ -31,19 +31,19 @@ import matplotlib.pyplot as plt
 ##
 
 # create argument parser #
-ml_apar = argparse.ArgumentParser( description='Research auto-encoder built with tensorflow' )
+ml_apar = argparse.ArgumentParser( description='Research auto-encoder built using tensorflow' )
 
 # argument directive #
-ml_apar.add_argument( '-d', '--input'  , type=str, help='import path'  )
-ml_apar.add_argument( '-s', '--size'   , type=int, help='image size'   )
-ml_apar.add_argument( '-1', '--hidden' , type=int, help='hidden size'  )
 ml_apar.add_argument( '-m', '--mode'   , type=str, help='script mode'  )
-ml_apar.add_argument( '-e', '--epoch'  , type=int, help='epoch number' )
-ml_apar.add_argument( '-b', '--batch'  , type=int, help='batch size'   )
+ml_apar.add_argument( '-e', '--epoch'  , type=int, help='epoch length' )
+ml_apar.add_argument( '-b', '--batch'  , type=int, help='batch length' )
+ml_apar.add_argument( '-i', '--input'  , type=str, help='input path'   )
+ml_apar.add_argument( '-o', '--output' , type=str, help='output path'  )
+ml_apar.add_argument( '-w', '--width'  , type=int, help='image width'  )
+ml_apar.add_argument( '-1', '--layer1' , type=int, help='layer size'   )
 ml_apar.add_argument( '-n', '--network', type=str, help='network path' )
 ml_apar.add_argument( '-u', '--start'  , type=int, help='range start'  )
 ml_apar.add_argument( '-v', '--stop'   , type=int, help='range stop'   )
-ml_apar.add_argument( '-x', '--output' , type=str, help='export path'  )
 
 # parse argument #
 ml_args = ml_apar.parse_args()
@@ -53,8 +53,8 @@ ml_args = ml_apar.parse_args()
 ##
 
 # network hyper-parameter #
-ml_h_input  = ml_args.size ** 2
-ml_h_hidden = ml_args.hidden
+ml_h_input  = ml_args.width ** 2
+ml_h_hidden = ml_args.layer1
 
 ##
 ##   script - network parameter
@@ -125,10 +125,16 @@ ml_network = tf.train.Saver()
 if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
 
     # import data #
-    ml_data = auto_data.ml_data_import( ml_args.input, ml_h_input )
+    ml_data = auto_data.ml_data_import( ml_args.input, ml_args.width )
+
+    # format data #
+    ml_data = auto_data.ml_data_format_y( ml_data )
+
+    # reshape data #
+    ml_data = ml_data.reshape( -1, ml_h_input )
 
     # training and validation data #
-    ml_data, ml_valid = auto_data.ml_data_split( ml_data, 0.8 )
+    ml_data, ml_valid = auto_data.ml_data_split( ml_data, 0.8, ml_args.batch )
 
     # minibatch count #
     ml_count = auto_data.ml_data_batch_count( ml_data, ml_args.batch )
@@ -173,7 +179,13 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
 elif ( ml_args.mode == 'auto' ):
 
     # import data #
-    ml_data = auto_data.ml_data_import( ml_args.input, ml_h_input )
+    ml_data = auto_data.ml_data_import( ml_args.input, ml_args.width )
+
+    # format data #
+    ml_data = auto_data.ml_data_format_y( ml_data )
+
+    # reshape data #
+    ml_data = ml_data.reshape( -1, ml_h_input )
 
     # check consistency #
     if ( auto_data.ml_data_range( ml_data, ml_args.start, ml_args.stop ) == False ):
@@ -197,8 +209,8 @@ elif ( ml_args.mode == 'auto' ):
     ml_auto = ml_session.run( ml_g_output, feed_dict={ ml_g_input : ml_data } )
 
     # reshape range #
-    ml_data = ml_data.reshape( -1, ml_args.size, ml_args.size )
-    ml_auto = ml_auto.reshape( -1, ml_args.size, ml_args.size )
+    ml_data = ml_data.reshape( -1, ml_args.width, ml_args.width )
+    ml_auto = ml_auto.reshape( -1, ml_args.width, ml_args.width )
 
     # parsing range #
     for ml_export in range( ml_data.shape[0] ):
@@ -210,7 +222,13 @@ elif ( ml_args.mode == 'auto' ):
 elif ( ml_args.mode == 'encode' ):
 
     # import data #
-    ml_data = auto_data.ml_data_import( ml_args.input, ml_h_input )
+    ml_data = auto_data.ml_data_import( ml_args.input, ml_args.width )
+
+    # format data #
+    ml_data = auto_data.ml_data_format_y( ml_data )
+
+    # reshape data #
+    ml_data = ml_data.reshape( -1, ml_h_input )
 
     # check consistency #
     if ( auto_data.ml_data_range( ml_data, ml_args.start, ml_args.stop ) == False ):
@@ -261,7 +279,7 @@ elif ( ml_args.mode == 'decode' ):
     ml_decode = ml_session.run( ml_s2_output, feed_dict={ ml_s2_input : ml_data } )
 
     # reshape range #
-    ml_decode = ml_decode.reshape( -1, ml_args.size, ml_args.size )
+    ml_decode = ml_decode.reshape( -1, ml_args.width, ml_args.width )
 
     # parsing range #
     for ml_parse in range( ml_data.shape[0] ):
