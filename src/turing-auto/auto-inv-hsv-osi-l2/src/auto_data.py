@@ -62,6 +62,11 @@ def ml_data_format_y( ml_data ):
     # contract to y format #
     return 0.2126 * ml_data[:,:,:,0] + 0.7152 * ml_data[:,:,:,1] + 0.0722 * ml_data[:,:,:,2]
 
+def ml_data_format_central( ml_data ):
+
+    # return centralised dataset - normalisation on [-1,+1] #
+    return numpy.multiply( ml_data - 1.0, 2.0 )
+
 ##
 ##  script - dataset shuffle
 ##

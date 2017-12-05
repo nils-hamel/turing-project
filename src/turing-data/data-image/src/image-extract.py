@@ -89,7 +89,7 @@ def ml_import( ml_path, ml_size ):
 ##
 
 # import data #
-ml_data = ml_import( ml_args.dataset, ml_args.size )
+ml_data = ml_import( ml_args.dataset, ml_args.width )
 
 # check extraction mode #
 if ( ml_args.mode == 'full' ):
