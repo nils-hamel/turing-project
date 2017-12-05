@@ -33,10 +33,11 @@ import matplotlib.image as ml_image
 ml_apar = argparse.ArgumentParser()
 
 # argument directive #
-ml_apar.add_argument( '-i', '--dataset', type=str, help='dataset path'    )
-ml_apar.add_argument( '-w', '--size'   , type=int, help='dataset witdh'   )
-ml_apar.add_argument( '-o', '--image'  , type=str, help='image path'      )
-ml_apar.add_argument( '-c', '--count'  , type=int, help='selection count' )
+ml_apar.add_argument( '-m', '--mode'   , type=str, help='script mode'  )
+ml_apar.add_argument( '-d', '--dataset', type=str, help='dataset path' )
+ml_apar.add_argument( '-w', '--width'  , type=int, help='image width'  )
+ml_apar.add_argument( '-i', '--image'  , type=str, help='image path'   )
+ml_apar.add_argument( '-c', '--count'  , type=int, help='image count'  )
 
 # read argument and parameter #
 ml_args = ml_apar.parse_args()
@@ -54,7 +55,7 @@ def ml_export( ml_data, ml_path ):
 ##  script - dataset importation
 ##
 
-def ml_import( ml_path, ml_resolution ):
+def ml_import( ml_path, ml_size ):
 
     # check consistency #
     if ( not os.path.exists( ml_path ) ):
@@ -78,7 +79,7 @@ def ml_import( ml_path, ml_resolution ):
     ml_data = numpy.multiply( ml_data, 1.0 / 255.0 )
 
     # reshape array #
-    ml_data = ml_data.reshape( -1, ml_resolution, ml_resolution, 3 )
+    ml_data = ml_data.reshape( -1, ml_size, ml_size, 3 )
 
     # return array #
     return ml_data
@@ -90,12 +91,32 @@ def ml_import( ml_path, ml_resolution ):
 # import data #
 ml_data = ml_import( ml_args.dataset, ml_args.size )
 
-# selecting random dataset image #
-for ml_parse in range( ml_args.count ):
+# check extraction mode #
+if ( ml_args.mode == 'full' ):
 
-    # create random index #
-    ml_index = random.randint( 0, ml_data.shape[0] - 1 )
+    # parsing data #
+    for ml_parse in range( ml_data.shape[0] ):
 
-    # export selected image #
-    ml_export( ml_data[ml_index], ml_args.image + '/image-{:06d}.png'.format( ml_parse ) )
-    
+        # display information #
+        print( 'turing : exporting image ' + str( ml_parse ) + '...' )
+
+        # export image #
+        ml_export( ml_data[ml_parse,:,:], ml_args.image + '/image-{:06d}.png'.format( ml_parse ) )
+
+    # display information #
+    print( 'turing : done' )
+
+elif ( ml_args.mode == 'sample' ):
+
+    # parsing data #
+    for ml_parse in range( ml_args.count ):
+
+        # create random index #
+        ml_index = random.randint( 0, ml_data.shape[0] - 1 )
+
+        # display information #
+        print( 'turing : selected image ' + str( ml_index ) + '...' )
+
+        # export image #
+        ml_export( ml_data[ml_index,:,:], ml_args.image + '/image-{:06d}.png'.format( ml_parse ) )
+

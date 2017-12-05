@@ -32,8 +32,8 @@ import matplotlib.image as ml_image
 ml_apar = argparse.ArgumentParser()
 
 # argument directive #
-ml_apar.add_argument( '-i', '--image'  , required=True, type=str, help='image path'   )
-ml_apar.add_argument( '-o', '--dataset', required=True, type=str, help='dataset path' )
+ml_apar.add_argument( '-i', '--image'  , type=str, help='image path'   )
+ml_apar.add_argument( '-d', '--dataset', type=str, help='dataset path' )
 
 # read argument and parameter #
 ml_args = ml_apar.parse_args()
@@ -47,7 +47,7 @@ def ml_export( ml_data, ml_path ):
     # create output stream #
     with open( ml_path, 'ab' ) as ml_file:
 
-        # export array in file #
+        # export array #
         numpy.array( ml_data, dtype=numpy.uint8 ).tofile( ml_file )
 
 ##
@@ -56,10 +56,10 @@ def ml_export( ml_data, ml_path ):
 
 def ml_normalise( ml_data ):
 
-    # check image shape #
+    # check image format #
     if ( len( ml_data.shape ) == 3 ):
 
-        # check image size #
+        # check image format #
         if ( ml_data.shape[2] == 4 ):
 
             # remove alpha layer #

@@ -44,15 +44,15 @@ function ml_args() {
         # switch on argument #
         case ${ml_arg} in
 
-            --photo-path|-i)
+            --photo|-p)
                 ML_IMAGES="${1}"
             shift;;
 
-            --photo-format|-f)
+            --format|-f)
                 ML_FORMAT="${1}"
             shift;;
 
-            --image-path|-o)
+            --image|-i)
                 ML_DSPATH="${1}"
             shift;;
 
