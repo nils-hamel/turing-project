@@ -61,12 +61,12 @@ ml_h_hidden = ml_args.layer1
 ##
 
 # network parameter : weights #
-ml_p_w1 = tf.Variable( tf.random_normal( [ ml_h_input, ml_h_hidden ] ) )
-ml_p_w2 = tf.Variable( tf.random_normal( [ ml_h_hidden, ml_h_input ] ) )
+ml_p_w1 = tf.Variable( tf.random_normal( [ ml_h_input, ml_h_hidden ], stddev=0.05 ) )
+ml_p_w2 = tf.Variable( tf.random_normal( [ ml_h_hidden, ml_h_input ], stddev=0.05 ) )
 
 # network parameter : biases #
-ml_p_b1 = tf.Variable( tf.random_normal( [ ml_h_hidden ] ) )
-ml_p_b2 = tf.Variable( tf.random_normal( [ ml_h_input  ] ) )
+ml_p_b1 = tf.Variable( tf.zeros( [ ml_h_hidden ] ) )
+ml_p_b2 = tf.Variable( tf.zeros( [ ml_h_input  ] ) )
 
 ##
 ##   script - network topology
@@ -102,7 +102,7 @@ ml_s2_output = tf.nn.sigmoid( tf.add( tf.matmul( ml_s2_input, ml_p_w2 ), ml_p_b2
 ##
 
 # objective function : mean(L2) #
-ml_o_loss = tf.reduce_mean( tf.pow( tf.subtract( ml_g_output, ml_g_input ), 2 ) )
+ml_o_loss = tf.reduce_mean( tf.pow( tf.subtract( ml_g_input, ml_g_output ), 2 ) )
 
 ##
 ##   script - network optimisation
@@ -176,7 +176,7 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
         ml_loss.append( [ ml_t_loss, ml_v_loss[0] ] )
 
         # display information on loss #
-        print( 'epoch :', "{:06d}".format(ml_epoch), ' : t_loss =', "{:0.4e}".format(ml_t_loss), ' : v_loss =', "{:0.4e}".format(ml_v_loss[0]) )
+        print( 'epoch :', "{:06d}".format(ml_epoch), ': t_loss =', "{:0.4e}".format(ml_t_loss), ': v_loss =', "{:0.4e}".format(ml_v_loss[0]) )
 
     # export loss #
     auto_data.ml_data_vector_save( ml_loss, ml_args.network + '/loss-data' )
@@ -207,9 +207,6 @@ elif ( ml_args.mode == 'auto' ):
 
     # tensorflow session #
     ml_session = tf.Session()
-
-    # tensorflow variables #
-    ml_session.run( ml_variables )
 
     # import network #
     ml_network.restore( ml_session, ml_args.network )
@@ -251,9 +248,6 @@ elif ( ml_args.mode == 'encode' ):
     # tensorflow session #
     ml_session = tf.Session()
 
-    # tensorflow variables #
-    ml_session.run( ml_variables )
-
     # import network #
     ml_network.restore( ml_session, ml_args.network )
 
@@ -278,9 +272,6 @@ elif ( ml_args.mode == 'decode' ):
     # tensorflow session #
     ml_session = tf.Session()
 
-    # tensorflow variables #
-    ml_session.run( ml_variables )
-
     # import network #
     ml_network.restore( ml_session, ml_args.network )
 
@@ -301,9 +292,6 @@ elif ( ml_args.mode == 'view' ):
 
     # tensorflow session #
     ml_session = tf.Session()
-
-    # tensorflow variables #
-    ml_session.run( ml_variables )
 
     # import network #
     ml_network.restore( ml_session, ml_args.network )
