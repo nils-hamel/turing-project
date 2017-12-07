@@ -25,9 +25,7 @@ and with the following python3 modules :
 * os
 * matplotlib
 * argparse
-* tensorflow
+* tensorflow ([installation instructions](https://www.tensorflow.org/install/))
 * random
-
-Install the TensorFlow module using the provided [instructions](https://www.tensorflow.org/install/).
 
 Note that the python scripts included in this directory are designed for python3. Nevertheless, most of the time the scripts can simply be converted to python2.
