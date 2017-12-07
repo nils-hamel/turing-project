@@ -169,6 +169,9 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
         # import network #
         ml_network.restore( ml_session, ml_args.network )
 
+    # initialise loss history #
+    ml_loss = []
+
     # network training : epochs #
     for ml_epoch in range( ml_args.epoch ):
 
@@ -187,8 +190,14 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
         # compute validation loss #
         ml_v_loss = ml_session.run( [ ml_o_loss ], feed_dict={ ml_g_input : ml_valid } )
 
+        # append to loss vectors #
+        ml_loss.append( [ ml_t_loss, ml_v_loss[0] ] )
+
         # display information on loss #
         print( 'epoch :', "{:06d}".format(ml_epoch), ' : t_loss =', "{:0.4e}".format(ml_t_loss), ' : v_loss =', "{:0.4e}".format(ml_v_loss[0]) )
+
+    # export loss #
+    auto_data.ml_data_vector_save( ml_loss, ml_args.network + '/loss-data' )
 
     # export network #
     ml_network.save( ml_session, ml_args.network )
