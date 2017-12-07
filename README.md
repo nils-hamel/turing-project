@@ -30,4 +30,4 @@ and with the following python3 modules :
 
 Install the TensorFlow module using the provided [instructions](https://www.tensorflow.org/install/).
 
-## Usage
+Note that the python scripts included in this directory are designed for python3. Nevertheless, most of the time the scripts can simply be converted to python2.
