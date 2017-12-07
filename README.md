@@ -1,8 +1,13 @@
 ## Overview
 
-This repository contains the researches conducted in deep learning applied to 3-dimensional and 4-dimensional objects. Different type of neural networks are studied in order to better understand their ability to apply in such domain.
+This repository contains the researches codes, analysis and results of deep learning applied to 3-dimensional and 4-dimensional object in the domain of the geodesy and geography. The goal of the conducted research is to determine at which extent deep learning can be applied to address the challenges that appears in such domain.
+
+More precisely, the researches published on this repository study which neural network topologies have the best training and generalisation performance addressing specific tasks in the domain of geodesy and geography. It follows that this repository holds many different codes and trials and the published researches are often driven under a systematic approach, showing both good and bad results.
 
 ## Turing Project
+
+The _Turing Project_ can be seen as three parts : the first one are the ensemble of the considered data-sets used for neural networks analysis. The second part contains the neural networks implementation script that are tested and analysed. The last part are
+the results and their subsequent analysis.
 
 ## Copyright and License
 
