@@ -6,14 +6,14 @@ More precisely, the researches published on this repository study which neural n
 
 # Turing Project
 
-The _Turing Project_ can be seen as three parts : the first one are the ensemble of the considered data-sets used for neural networks analysis. The second part contains the neural networks implementation script that are tested and analysed. The last part are
+The _Turing Project_ can be split in three main parts : the first one are the ensemble of the considered data-sets used for neural networks analysis. The second part contains the neural networks implementation script that are tested and analysed. The last part are
 the results and their subsequent analysis.
 
 ## Turing Project : Data-Sets
 
 Two main type of digital objects are considered in this approach of deep learning applied to geodesy and geography. The first one are the 2-dimensional and 3-dimensional raster containing greyscale of color images. The second type of objects are 3-dimensional or 4-dimensional greyscale or color 3D models sampled over voxel grids. Of course, more complex combination of those objects are also considered for deeper analysis.
 
-### Turing Project : Image Raster
+### Data-Sets : Image Raster
 
 Different image data-sets are considered in the conducted research to also analyse the way neural network are able learn different type of representation. The considered data-sets are presented here through their own page :
 
@@ -30,6 +30,21 @@ Different image data-sets are considered in the conducted research to also analy
 * [64x64x3-venezia-piazza-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-piazza-2016.md)
 * [64x64x3-venezia-san-giacometto-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-giacometto-2016.md)
 * [64x64x3-venezia-san-marco-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-marco-2016.md)
+
+## Turing Project : Neural Networks
+
+Different type of neural networks are analysed in this approach of deep learning applied to geodesy and geography. The first type of neural networks are the auto-encoder used to determine the ability of neural networks to reduce and generalise sets of data.
+
+### Neural Networks : Auto-Encoder
+
+Auto-encoders are used to determine in which extend neural networks are able to learn and generalise specific data-sets in the domain of geodesy and geography. The goal of the study of auto-encoders is to verify their ability to understand the grammar of specific places and environments mainly from the point of view of interpretation and completion.
+
+Several _academic_ auto-encoders are considered and listed here :
+
+* [inv-hsv-osi-l2 : single layer](https://github.com/nils-hamel/turing-project/blob/master/src/turing-auto/auto-inv-hsv-osi-l2/README.md
+* [inv-hsv-hsv-hsv-osi-l2 : three layer](https://github.com/nils-hamel/turing-project/blob/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-l2/README.md
+
+## Turing Project : Research and Results
 
 # Copyright and License
 
