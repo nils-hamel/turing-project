@@ -78,18 +78,18 @@ function ml_args() {
 ##  script - mathematics
 ##
 
-function ml_max() {
+function ml_min() {
 
     # compare values #
     if (( ${1} > ${2} )); then
 
         # return first value #
-        echo ${1}
+        echo ${2}
 
     else
 
         # return second value #
-        echo ${2}
+        echo ${1}
 
     fi
 
@@ -116,7 +116,7 @@ for ml_image in ${ML_IMAGES}/*.${ML_FORMAT}; do
     ml_h=$(identify -format "%h" ${ml_image})
 
     # retrieve maximum dimension #
-    ml_d=$(ml_max ${ml_w} ${ml_h})
+    ml_d=$(ml_min ${ml_w} ${ml_h})
 
     # display information #
     echo "processing image $(basename ${ml_image}) (${ml_w}x${ml_h}) ..."
