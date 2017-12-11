@@ -17,19 +17,19 @@ Two main type of digital objects are considered in this approach of deep learnin
 
 Different image data-sets are considered in the conducted research to also analyse the way neural network are able learn different type of representation. The considered data-sets are presented here through their own page :
 
-* 64x64x3-geneva-2009 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2009.md))
-* 64x64x3-geneva-2011 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2011.md))
-* 64x64x3-geneva-2016 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2016.md))
-* 64x64x3-geneva-oblique-2013 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-oblique-2013.md))
-* 64x64x3-paris-louvre-2017 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-paris-louvre-2017.md))
-* 64x64x3-venezia-2004 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2004.md))
-* 64x64x3-venezia-2010 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2010.md))
-* 64x64x3-venezia-2014 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2014.md))
-* 64x64x3-venezia-campanile-2016 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-campanile-2016.md))
-* 64x64x3-venezia-palazzo-ducale-2016 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-palazzo-ducale-2016.md))
-* 64x64x3-venezia-piazza-2016 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-piazza-2016.md))
-* 64x64x3-venezia-san-giacometto-2016 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-giacometto-2016.md))
-* 64x64x3-venezia-san-marco-2016 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-marco-2016.md))
+* [64x64x3-geneva-2009](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2009.md)
+* [64x64x3-geneva-2011](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2011.md)
+* [64x64x3-geneva-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2016.md)
+* [64x64x3-geneva-oblique-2013](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-oblique-2013.md)
+* [64x64x3-paris-louvre-2017](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-paris-louvre-2017.md)
+* [64x64x3-venezia-2004](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2004.md)
+* [64x64x3-venezia-2010](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2010.md)
+* [64x64x3-venezia-2014](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2014.md)
+* [64x64x3-venezia-campanile-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-campanile-2016.md)
+* [64x64x3-venezia-palazzo-ducale-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-palazzo-ducale-2016.md)
+* [64x64x3-venezia-piazza-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-piazza-2016.md)
+* [64x64x3-venezia-san-giacometto-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-giacometto-2016.md)
+* [64x64x3-venezia-san-marco-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-marco-2016.md)
 
 # Copyright and License
 
