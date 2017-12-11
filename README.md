@@ -23,6 +23,7 @@ Different image data-sets are considered in the conducted research to also analy
 * 64x64x3-geneva-oblique-2013 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-oblique-2013.md))
 * 64x64x3-paris-louvre-2017 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-paris-louvre-2017.md))
 * 64x64x3-venezia-2004 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2004.md))
+* 64x64x3-venezia-2010 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2010.md))
 
 # Copyright and License
 
