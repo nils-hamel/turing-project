@@ -25,6 +25,7 @@ Different image data-sets are considered in the conducted research to also analy
 * 64x64x3-venezia-2004 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2004.md))
 * 64x64x3-venezia-2010 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2010.md))
 * 64x64x3-venezia-2014 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2014.md))
+* 64x64x3-venezia-campanile-2016 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-campanile-2016.md))
 
 # Copyright and License
 
