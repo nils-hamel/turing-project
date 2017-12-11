@@ -18,6 +18,7 @@ Two main type of digital objects are considered in this approach of deep learnin
 Different image data-sets are considered in the conducted research to also analyse the way neural network are able learn different type of representation. The considered data-sets are presented here through their own page :
 
 * 64x64x3-geneva-2009 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2009.md))
+* 64x64x3-geneva-2011 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2011.md))
 
 # Copyright and License
 
