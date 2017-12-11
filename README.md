@@ -52,7 +52,7 @@ Researches are linked to the implemented neural networks and the data-sets on wh
 
 The following research presents the result of the analysis of the training and generalisation results of auto-encoders applied on 2-dimensional image raster. The implementation of the auto-encoders allows to modulate the sizes of the hidden layers in order to perform systematic analysis of the networks performances.
 
-* [Generalisation analysis according to data-sets and hidden layer size of single layer auto-encoder](https://github.com/nils-hamel/turing-project/blob/master/doc/research/research-auto-single-training.md)
+* [Generalisation analysis according to data-sets and hidden layer size of single layer auto-encoder](https://github.com/nils-hamel/turing-project/blob/master/doc/research/fbdf7076fae65267.md)
 
 # Copyright and License
 
