@@ -29,6 +29,7 @@ Different image data-sets are considered in the conducted research to also analy
 * 64x64x3-venezia-palazzo-ducale-2016 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-palazzo-ducale-2016.md))
 * 64x64x3-venezia-piazza-2016 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-piazza-2016.md))
 * 64x64x3-venezia-san-giacometto-2016 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-giacometto-2016.md))
+* 64x64x3-venezia-san-marco-2016 ([v1.0](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-marco-2016.md))
 
 # Copyright and License
 
