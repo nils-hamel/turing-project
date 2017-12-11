@@ -41,8 +41,8 @@ Auto-encoders are used to determine in which extend neural networks are able to 
 
 Several _academic_ auto-encoders are considered and listed here :
 
-* [inv-hsv-osi-l2 : single layer](https://github.com/nils-hamel/turing-project/blob/master/src/turing-auto/auto-inv-hsv-osi-l2/README.md
-* [inv-hsv-hsv-hsv-osi-l2 : three layer](https://github.com/nils-hamel/turing-project/blob/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-l2/README.md
+* [inv-hsv-osi-l2 : single layer](https://github.com/nils-hamel/turing-project/blob/master/src/turing-auto/auto-inv-hsv-osi-l2/README.md)
+* [inv-hsv-hsv-hsv-osi-l2 : three layer](https://github.com/nils-hamel/turing-project/blob/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-l2/README.md)
 
 ## Turing Project : Research and Results
 
