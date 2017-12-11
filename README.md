@@ -41,10 +41,18 @@ Auto-encoders are used to determine in which extend neural networks are able to 
 
 Several _academic_ auto-encoders are considered and listed here :
 
-* [inv-hsv-osi-l2 : single layer](https://github.com/nils-hamel/turing-project/blob/master/src/turing-auto/auto-inv-hsv-osi-l2/README.md)
-* [inv-hsv-hsv-hsv-osi-l2 : three layer](https://github.com/nils-hamel/turing-project/blob/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-l2/README.md)
+* [inv-hsv-osi-l2 : 1-layer auto-encoder for image raster](https://github.com/nils-hamel/turing-project/blob/master/src/turing-auto/auto-inv-hsv-osi-l2/README.md)
+* [inv-hsv-hsv-hsv-osi-l2 : 3-layer auto-encoder for image raster](https://github.com/nils-hamel/turing-project/blob/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-l2/README.md)
 
-## Turing Project : Research and Results
+## Turing Project : Researches
+
+Researches are linked to the implemented neural networks and the data-sets on which they are applied. The following section give access to the research performed under the _Turing Project_.
+
+### Researches : Auto-Encoders for image raster
+
+The following research presents the result of the analysis of the training and generalisation results of auto-encoders applied on 2-dimensional image raster. The implementation of the auto-encoders allows to modulate the sizes of the hidden layers in order to perform systematic analysis of the networks performances.
+
+* [Generalisation analysis according to data-sets and hidden layer size of single layer auto-encoder](https://github.com/nils-hamel/turing-project/blob/master/doc/research/research-auto-single-training.md)
 
 # Copyright and License
 
