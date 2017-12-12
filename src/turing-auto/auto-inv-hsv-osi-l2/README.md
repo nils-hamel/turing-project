@@ -20,6 +20,11 @@ to be identical from a call to another on a specific data-set and trained
 network. Loading a network that has been trained with a different hidden size
 will raise an error.
 
+The input layer is fed using the raster image from the specified data-set. The
+image are initially converted into greyscale image before to be normalised on the
+[0,1] floating point range. The output image have then to be expected in the same
+format.
+
 The network implementation script provides different modes. The first mode
 correspond to the network training and retraining process. The second mode
 allows to auto-encode image of the data-set by specified the image index range.
