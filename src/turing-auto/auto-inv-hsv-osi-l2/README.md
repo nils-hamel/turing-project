@@ -15,8 +15,8 @@ The cost function of the network is a simple L2 norm between the input and outpu
 layer. The theoretical minimum of the cost function is then the identity between
 the input and output layer.
 
-As the hidden layer can be modulated in size using the script parameter, it has
-to be identical from a call to another for a specific data-set and trained
+As the hidden layer can be modulated in size using the script parameters, it has
+to be identical from a call to another on a specific data-set and trained
 network. Loading a network that has been trained with a different hidden size
 will raise an error.
 
