@@ -65,7 +65,12 @@ def ml_data_format_y( ml_data ):
 def ml_data_format_central( ml_data ):
 
     # return centralised dataset - normalisation on [-1,+1] #
-    return numpy.multiply( ml_data - 1.0, 2.0 )
+    return numpy.multiply( ml_data - 0.5, 2.0 )
+
+def ml_data_format_central_invert( ml_data ):
+
+    # return inverted centralised dataset #
+    return numpy.multiply( ml_data + 1.0, 0.5 )
 
 ##
 ##  script - dataset shuffle
