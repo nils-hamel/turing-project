@@ -41,8 +41,8 @@ Auto-encoders are used to determine in which extend neural networks are able to 
 
 Several _academic_ auto-encoders are considered and listed here :
 
-* [inv-hsv-osi-l2 : 1-layer auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-osi-l2)
-* [icv-hhv-ohi-l2 : asinh 1-layer auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-hhv-ohi-l2)
+* [inv-hsv-osi-l2 : 1-layer sigmoid auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-osi-l2)
+* [icv-hhv-ohi-l2 : 1-layer asinh auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-hhv-ohi-l2)
 * [inv-hsv-hsv-hsv-osi-l2 : 3-layer auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-l2)
 
 ## Turing Project : Researches
