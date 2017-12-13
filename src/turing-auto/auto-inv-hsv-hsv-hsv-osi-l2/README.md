@@ -1,7 +1,7 @@
 # Auto-Encoder : inv-hsv-hsv-hsv-osi-l2
 
 This directory contains the implementation of a three hidden layer auto-encoder
-for raster images. It is trained using rastre image data-set in grayscale format.
+for raster images. It is trained using raster images data-sets in grayscale format.
 
 The topology of the network starts with the input layer that has its size identical
 to the number of pixel of the data-set images. The input layer is connected to
@@ -14,7 +14,7 @@ the size of the input layer. All hidden layer and the output layer comes with a
 sigmoid as activation function.
 
 The cost function of the network is a simple L2 norm between the input and output
-layer. The theoretical minimum of the cost function is then the identity between
+layers. The theoretical minimum of the cost function is then the identity between
 the input and output layer.
 
 As the hiddens layers can be modulated in size using the script parameters, they have
