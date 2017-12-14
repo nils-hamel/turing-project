@@ -44,7 +44,7 @@ Several _academic_ auto-encoders are considered and listed here :
 * [inv-hsv-osi-l2 : 1-layer sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-osi-l2)
 * [icv-hhv-ohi-l2 : 1-layer asinh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-hhv-ohi-l2)
 * [icv-htv-oti-l2 : 1-layer tanh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-htv-oti-l2)
-* [inv-hsv-hsv-hsv-osi-l2 : 3-layer auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-l2)
+* [inv-hsv-hsv-hsv-osi-l2 : 3-layer signoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-l2)
 
 ## Turing Project : Researches
 
@@ -54,7 +54,7 @@ Researches are linked to the implemented neural networks and the data-sets on wh
 
 The following research presents the result of the analysis of the training and generalisation results of auto-encoders applied on 2-dimensional image raster. The implementation of the auto-encoders allows to modulate the sizes of the hidden layers in order to perform systematic analysis of the networks performances.
 
-* [Generalisation analysis according to data-sets and hidden layer size of single layer auto-encoder](https://github.com/nils-hamel/turing-project/blob/master/doc/research/fbdf7076fae65267.md)
+* [Training and generalisation of the inv-hsv-osi-l2 according to the data-set and hidden size](https://github.com/nils-hamel/turing-project/blob/master/doc/research/fbdf7076fae65267.md)
 
 # Copyright and License
 
