@@ -282,7 +282,7 @@ elif ( ml_args.mode == 'decode' ):
     ml_data = auto_data.ml_data_vector_load( ml_args.input )
 
     # check consistency #
-    if ( ml_data.shape[1] != ml_h_hidden ):
+    if ( ml_data.shape[1] != ml_h_hidden2 ):
 
         # send message #
         sys.exit( 'turing : error : inconsistent vector' )
