@@ -58,8 +58,8 @@ def ml_data_import( ml_path, ml_size ):
 ##
 
 def ml_data_format_y( ml_data ):
-
-    # contract to y format #
+    
+    # return converted data #
     return 0.2126 * ml_data[:,:,:,0] + 0.7152 * ml_data[:,:,:,1] + 0.0722 * ml_data[:,:,:,2]
 
 def ml_data_format_central( ml_data ):
@@ -96,7 +96,7 @@ def ml_data_shuffle( ml_data, ml_index ):
         sys.exit( 'turing : error : vector must have the same size' )
 
     # create data copy #
-    ml_copy = ml_data
+    ml_copy = numpy.copy( ml_data )
 
     # parsing index #
     for ml_parse in range( ml_data.shape[0] ):
@@ -120,20 +120,18 @@ def ml_data_split( ml_data, ml_proportion, ml_batch_size ):
     ml_index = int( ml_index / ml_batch_size ) * ml_batch_size
 
     # return splitted dataset #
-    return ml_data[:ml_index], ml_data[ml_index:]
+    return numpy.copy( ml_data[:ml_index] ), numpy.copy( ml_data[:ml_data.shape[0] - ml_index] ), numpy.copy( ml_data[ml_index:] )
 
 def ml_data_range( ml_data, ml_start, ml_stop ):
 
     # check range #
     if ( ( ml_data.shape[0] < ml_stop ) or ( ml_start > ml_stop ) ):
 
-        # return result #
-        return False
+        # send message #
+        sys.exit( 'turing : error : selection out of range' )
 
-    else:
-
-        # return result #
-        return True
+    # return selected range #
+    return numpy.copy( ml_data[ml_start:ml_stop] )
 
 ##
 ##  script - dataset minibatch

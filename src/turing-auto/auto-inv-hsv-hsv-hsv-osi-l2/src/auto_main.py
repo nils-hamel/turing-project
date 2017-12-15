@@ -151,8 +151,8 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
     # reshape data #
     ml_data = ml_data.reshape( -1, ml_h_input )
 
-    # training and validation data #
-    ml_data, ml_valid = auto_data.ml_data_split( ml_data, 0.8, ml_args.batch )
+    # training and validation loss data #
+    ml_data, ml_train, ml_valid = auto_data.ml_data_split( ml_data, 0.8, ml_args.batch )
 
     # minibatch count #
     ml_count = auto_data.ml_data_batch_count( ml_data, ml_args.batch )
@@ -185,16 +185,19 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
             ml_batch = auto_data.ml_data_batch( ml_data, ml_args.batch, ml_stocastic )
 
             # optimisation step #
-            _, ml_t_loss = ml_session.run( [ ml_o_mopt, ml_o_loss ], feed_dict={ ml_g_input : ml_batch } )
+            _, __ = ml_session.run( [ ml_o_mopt, ml_o_loss ], feed_dict={ ml_g_input : ml_batch } )
+
+        # compute training loss #
+        ml_t_loss = ml_session.run( [ ml_o_loss ], feed_dict={ ml_g_input : ml_train } )
 
         # compute validation loss #
         ml_v_loss = ml_session.run( [ ml_o_loss ], feed_dict={ ml_g_input : ml_valid } )
 
         # append to loss vectors #
-        ml_loss.append( [ ml_t_loss, ml_v_loss[0] ] )
+        ml_loss.append( [ ml_t_loss[0], ml_v_loss[0] ] )
 
         # display information on loss #
-        print( 'epoch :', "{:06d}".format(ml_epoch), ' : t_loss =', "{:0.4e}".format(ml_t_loss), ' : v_loss =', "{:0.4e}".format(ml_v_loss[0]) )
+        print( 'epoch :', "{:06d}".format(ml_epoch), ' : t_loss =', "{:0.4e}".format(ml_t_loss[0]), ' : v_loss =', "{:0.4e}".format(ml_v_loss[0]) )
 
     # export loss #
     auto_data.ml_data_vector_save( ml_loss, ml_args.network + '/loss-data' )
@@ -214,14 +217,8 @@ elif ( ml_args.mode == 'auto' ):
     # reshape data #
     ml_data = ml_data.reshape( -1, ml_h_input )
 
-    # check consistency #
-    if ( auto_data.ml_data_range( ml_data, ml_args.start, ml_args.stop ) == False ):
-
-        # send message #
-        sys.exit( 'turing : error : range specification' )
-
     # extract data range #
-    ml_data = ml_data[ml_args.start:ml_args.stop]
+    ml_data = auto_data.ml_data_range( ml_data, ml_args.start, ml_args.stop )
 
     # tensorflow session #
     ml_session = tf.Session()
@@ -254,14 +251,8 @@ elif ( ml_args.mode == 'encode' ):
     # reshape data #
     ml_data = ml_data.reshape( -1, ml_h_input )
 
-    # check consistency #
-    if ( auto_data.ml_data_range( ml_data, ml_args.start, ml_args.stop ) == False ):
-
-        # send message #
-        sys.exit( 'turing : error : range specification' )
-
     # extract data range #
-    ml_data = ml_data[ml_args.start:ml_args.stop]
+    ml_data = auto_data.ml_data_range( ml_data, ml_args.start, ml_args.stop )
 
     # tensorflow session #
     ml_session = tf.Session()
