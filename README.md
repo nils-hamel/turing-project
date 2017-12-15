@@ -35,7 +35,7 @@ Different image data-sets are considered in the conducted research to also analy
 
 Different type of neural networks are analysed in this approach of deep learning applied to geodesy and geography. The first type of neural networks are the auto-encoder used to determine the ability of neural networks to reduce and generalise sets of data.
 
-### Neural Networks : Auto-Encoder
+### Neural Networks : Auto-Encoders
 
 Auto-encoders are used to determine in which extend neural networks are able to learn and generalise specific data-sets in the domain of geodesy and geography. The goal of the study of auto-encoders is to verify their ability to understand the grammar of specific places and environments mainly from the point of view of interpretation and completion.
 
@@ -53,9 +53,6 @@ Researches are linked to the implemented neural networks and the data-sets on wh
 ### Researches : Auto-Encoders for image raster
 
 The following research presents the result of the analysis of the training and generalisation results of auto-encoders applied on 2-dimensional image raster. The implementation of the auto-encoders allows to modulate the sizes of the hidden layers in order to perform systematic analysis of the networks performances.
-
-* [Training and generalisation of the inv-hsv-osi-l2 according to data-sets and hidden layer size](https://github.com/nils-hamel/turing-project/blob/master/doc/research/fbdf7076fae65267.md)
-* [Training and generalisation of the inv-hsv-hsv-hsv-osi-l2 according to data-sets and hidden layer size](https://github.com/nils-hamel/turing-project/blob/master/doc/research/a0a59df8246ea754.md)
 
 # Copyright and License
 
