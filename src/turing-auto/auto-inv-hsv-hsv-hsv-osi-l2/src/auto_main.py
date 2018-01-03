@@ -185,7 +185,7 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
             ml_batch = auto_data.ml_data_batch( ml_data, ml_args.batch, ml_stocastic )
 
             # optimisation step #
-            _, __ = ml_session.run( [ ml_o_mopt, ml_o_loss ], feed_dict={ ml_g_input : ml_batch } )
+            ml_session.run( ml_o_mopt, feed_dict={ ml_g_input : ml_batch } )
 
         # compute training loss #
         ml_t_loss = ml_session.run( [ ml_o_loss ], feed_dict={ ml_g_input : ml_train } )
