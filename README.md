@@ -59,7 +59,7 @@ The following research presents the result of the analysis of the training and g
 # Copyright and License
 
 **turing-project** - Nils Hamel <br >
-Copyright (c) 2016-2017 DHLAB, EPFL
+Copyright (c) 2016-2018 DHLAB, EPFL
 
 The codes are licensed under the terms of the GNU GPLv3. The documents and illustrations are licensed under the CC BY-SA 4.0. In addition, the data-sets content and results illustrations contain elements under subsequent copyrights. Please refer to the data-sets pages for more information.
 
