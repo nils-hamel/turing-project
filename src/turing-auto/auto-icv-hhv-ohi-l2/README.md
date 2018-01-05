@@ -18,7 +18,7 @@ As the hidden layer can be modulated in size using the script parameters, its
 size has to be identical from a call to another. Loading a trained network with
 a given hidden size with another value as parameters will raise an error.
 
-Using invert hyperbolic sinus as activation function imply specificity in the
+Using invert hyperbolic sinus as activation function implies specificity in the
 image input and output format. Instead of being normalised on the [0,1] floating
 point range, the greyscale pixels intensities are normalised on [-1,+1] range.
 The images created by the output layer are also normalised on this specific
