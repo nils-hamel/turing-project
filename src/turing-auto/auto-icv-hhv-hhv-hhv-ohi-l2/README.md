@@ -1,4 +1,4 @@
-# Auto-Encoder : icv-hhv-hhv-hhv-osi-l2
+# Auto-Encoder : icv-hhv-hhv-hhv-ohi-l2
 
 # Copyright and License
 
