@@ -64,6 +64,7 @@ hidden layers in order to perform systematic analysis of the networks performanc
 * [icv-htv-oti-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/1dc3c6eca32c689f.md)
 * [inv-hsv-hsv-hsv-osi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb.md)
 * [icv-hhv-hhv-hhv-ohi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/8f7a9e0546192e36.md)
+* [icv-htv-htv-htv-oti-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/752ab4601e1589d8.md)
 
 # Copyright and License
 
