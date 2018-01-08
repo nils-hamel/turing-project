@@ -54,7 +54,12 @@ Researches are linked to the implemented neural networks and the data-sets on wh
 
 ### Researches : Auto-Encoders for image raster
 
-The following research presents the result of the analysis of the training and generalisation results of auto-encoders applied on 2-dimensional image raster. The implementation of the auto-encoders allows to modulate the sizes of the hidden layers in order to perform systematic analysis of the networks performances.
+The following research presents the result of the analysis of the training and
+generalisation results of auto-encoders applied on 2-dimensional image raster.
+The implementation of the auto-encoders allows to modulate the sizes of the
+hidden layers in order to perform systematic analysis of the networks performances.
+
+* [inv-hsv-osi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/8a02301cb3b9f308.md)
 
 # Copyright and License
 
