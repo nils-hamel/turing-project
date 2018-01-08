@@ -1,38 +1,41 @@
-## icv-hhv-ohi-l2 training and validation
+## inv-hsv-hsv-hsv-osi-l2 training and validation
 
 This study focuses on the analysis of the training and validation performances of the
-[icv-hhv-ohi-l2](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-hhv-ohi-l2)
-auto-encoder according to the considered data-set and the size of its hidden layer.
+[inv-hsv-hsv-hsv-osi-l2](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-l2)
+auto-encoder according to the considered data-set and the size of its hidden layers.
 
-For each considered data-set, the unique hidden layer size is modulated with the
-values : 64, 128, 256, 512, 1024 and 2048. The considered data-sets are composed
-with 64 by 64 pixels greyscale images. The input and output layers are then each
-composed of 4096 neurons.
+For each considered data-set, the external layers and central layer are modulated
+in size with the values : 64, 128, 256, 512 and 1024. Two additional constraints
+are imposed : the two external layers have always the same size and the central
+layer is always smaller or equal in size to the external ones. The considered
+data-set are composed with 64 by 64 pixel greyscale images. The input and output
+layers are then each composed of 4096 neurons.
 
 Each data-set is split in two parts : the training set and the validation parts.
 Usually, eighty percent of the data-set is used as training data. The training
-is always conducted over 256 epochs and considering a batch size of 128. At each
+is always conducted over 512 epochs and considering a batch size of 128. At each
 epoch, the training and validation losses are exported.
 
 ## Training and validation performances
 
 The following sub-sections give an analysis of the training and validation
-performances of the auto-encoder according to its hidden layer size each for a
+performances of the auto-encoder according to its hidden layers sizes each for a
 specific data-set.
+
 
 ### Dataset : 64x64x3-geneva-2009
 
 This sub-section presents the training results of the network on the
 [64x64x3-geneva-2009](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2009.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-geneva-2009-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-geneva-2009-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2009.md">64x64x3-geneva-2009</a> data-set</i>
 </p>
@@ -41,11 +44,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-geneva-2009-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-geneva-2009-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2009.md">64x64x3-geneva-2009</a> data-set</i>
 </p>
@@ -55,7 +59,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-geneva-2009-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-geneva-2009-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2009.md">64x64x3-geneva-2009</a> data-set</i>
 </p>
@@ -68,15 +72,15 @@ set.
 
 This sub-section presents the training results of the network on the
 [64x64x3-geneva-2011](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2011.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-geneva-2011-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-geneva-2011-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2011.md">64x64x3-geneva-2011</a> data-set</i>
 </p>
@@ -85,11 +89,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-geneva-2011-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-geneva-2011-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2011.md">64x64x3-geneva-2011</a> data-set</i>
 </p>
@@ -99,7 +104,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-geneva-2011-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-geneva-2011-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2011.md">64x64x3-geneva-2011</a> data-set</i>
 </p>
@@ -112,15 +117,15 @@ set.
 
 This sub-section presents the training results of the network on the
 [64x64x3-geneva-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2016.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-geneva-2016-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-geneva-2016-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2016.md">64x64x3-geneva-2016</a> data-set</i>
 </p>
@@ -129,11 +134,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-geneva-2016-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-geneva-2016-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2016.md">64x64x3-geneva-2016</a> data-set</i>
 </p>
@@ -143,7 +149,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-geneva-2016-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-geneva-2016-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-2016.md">64x64x3-geneva-2016</a> data-set</i>
 </p>
@@ -156,15 +162,15 @@ set.
 
 This sub-section presents the training results of the network on the
 [64x64x3-geneva-oblique-2013](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-oblique-2013.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-geneva-oblique-2013-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-geneva-oblique-2013-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-oblique-2013.md">64x64x3-geneva-oblique-2013</a> data-set</i>
 </p>
@@ -173,11 +179,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-geneva-oblique-2013-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-geneva-oblique-2013-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-oblique-2013.md">64x64x3-geneva-oblique-2013</a> data-set</i>
 </p>
@@ -187,7 +194,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-geneva-oblique-2013-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-geneva-oblique-2013-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-geneva-oblique-2013.md">64x64x3-geneva-oblique-2013</a> data-set</i>
 </p>
@@ -200,15 +207,15 @@ set.
 
 This sub-section presents the training results of the network on the
 [64x64x3-paris-louvre-2017](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-paris-louvre-2017.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-paris-louvre-2017-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-paris-louvre-2017-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-paris-louvre-2017.md">64x64x3-paris-louvre-2017</a> data-set</i>
 </p>
@@ -217,11 +224,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-paris-louvre-2017-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-paris-louvre-2017-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-paris-louvre-2017.md">64x64x3-paris-louvre-2017</a> data-set</i>
 </p>
@@ -231,7 +239,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-paris-louvre-2017-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-paris-louvre-2017-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-paris-louvre-2017.md">64x64x3-paris-louvre-2017</a> data-set</i>
 </p>
@@ -244,15 +252,15 @@ set.
 
 This sub-section presents the training results of the network on the
 [64x64x3-venezia-2004](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2004.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-2004-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-2004-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2004.md">64x64x3-venezia-2004</a> data-set</i>
 </p>
@@ -261,11 +269,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-2004-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-2004-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2004.md">64x64x3-venezia-2004</a> data-set</i>
 </p>
@@ -275,7 +284,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-2004-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-2004-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2004.md">64x64x3-venezia-2004</a> data-set</i>
 </p>
@@ -288,15 +297,15 @@ set.
 
 This sub-section presents the training results of the network on the
 [64x64x3-venezia-2010](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2010.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-2010-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-2010-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2010.md">64x64x3-venezia-2010</a> data-set</i>
 </p>
@@ -305,11 +314,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-2010-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-2010-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2010.md">64x64x3-venezia-2010</a> data-set</i>
 </p>
@@ -319,7 +329,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-2010-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-2010-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2010.md">64x64x3-venezia-2010</a> data-set</i>
 </p>
@@ -332,15 +342,15 @@ set.
 
 This sub-section presents the training results of the network on the
 [64x64x3-venezia-2014](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2014.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-2014-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-2014-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2014.md">64x64x3-venezia-2014</a> data-set</i>
 </p>
@@ -349,11 +359,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-2014-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-2014-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2014.md">64x64x3-venezia-2014</a> data-set</i>
 </p>
@@ -363,7 +374,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-2014-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-2014-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-2014.md">64x64x3-venezia-2014</a> data-set</i>
 </p>
@@ -376,15 +387,15 @@ set.
 
 This sub-section presents the training results of the network on the
 [64x64x3-venezia-campanile-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-campanile-2016.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-campanile-2016-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-campanile-2016-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-campanile-2016.md">64x64x3-venezia-campanile-2016</a> data-set</i>
 </p>
@@ -393,11 +404,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-campanile-2016-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-campanile-2016-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-campanile-2016.md">64x64x3-venezia-campanile-2016</a> data-set</i>
 </p>
@@ -407,7 +419,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-campanile-2016-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-campanile-2016-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-campanile-2016.md">64x64x3-venezia-campanile-2016</a> data-set</i>
 </p>
@@ -420,15 +432,15 @@ set.
 
 This sub-section presents the training results of the network on the
 [64x64x3-venezia-palazzo-ducale-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-palazzo-ducale-2016.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-palazzo-ducale-2016-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-palazzo-ducale-2016-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-palazzo-ducale-2016.md">64x64x3-venezia-palazzo-ducale-2016</a> data-set</i>
 </p>
@@ -437,11 +449,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-palazzo-ducale-2016-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-palazzo-ducale-2016-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-palazzo-ducale-2016.md">64x64x3-venezia-palazzo-ducale-2016</a> data-set</i>
 </p>
@@ -451,7 +464,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-palazzo-ducale-2016-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-palazzo-ducale-2016-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-palazzo-ducale-2016.md">64x64x3-venezia-palazzo-ducale-2016</a> data-set</i>
 </p>
@@ -464,15 +477,15 @@ set.
 
 This sub-section presents the training results of the network on the
 [64x64x3-venezia-piazza-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-piazza-2016.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-piazza-2016-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-piazza-2016-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-piazza-2016.md">64x64x3-venezia-piazza-2016</a> data-set</i>
 </p>
@@ -481,11 +494,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-piazza-2016-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-piazza-2016-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-piazza-2016.md">64x64x3-venezia-piazza-2016</a> data-set</i>
 </p>
@@ -495,7 +509,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-piazza-2016-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-piazza-2016-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-piazza-2016.md">64x64x3-venezia-piazza-2016</a> data-set</i>
 </p>
@@ -508,15 +522,15 @@ set.
 
 This sub-section presents the training results of the network on the
 [64x64x3-venezia-san-giacometto-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-giacometto-2016.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-san-giacometto-2016-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-san-giacometto-2016-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-giacometto-2016.md">64x64x3-venezia-san-giacometto-2016</a> data-set</i>
 </p>
@@ -525,11 +539,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-san-giacometto-2016-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-san-giacometto-2016-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-giacometto-2016.md">64x64x3-venezia-san-giacometto-2016</a> data-set</i>
 </p>
@@ -539,7 +554,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-san-giacometto-2016-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-san-giacometto-2016-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-giacometto-2016.md">64x64x3-venezia-san-giacometto-2016</a> data-set</i>
 </p>
@@ -552,15 +567,15 @@ set.
 
 This sub-section presents the training results of the network on the
 [64x64x3-venezia-san-marco-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-marco-2016.md) data-set and according to the
-size of its unique hidden layer. The following plot shows
+size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
-the training epochs and hidden layer size. The red curves give the evolution of the training
+the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used
-in the hidden layer.
+The title of each sub-plot gives the amount of neurons that are used in the
+external layers and the central one, respectively.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-san-marco-2016-loss.jpg?raw=true" width="640">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-san-marco-2016-loss.jpg?raw=true" width="640">
 <br />
 <i>Training (red) and validation (orange) losses according to training epochs for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-marco-2016.md">64x64x3-venezia-san-marco-2016</a> data-set</i>
 </p>
@@ -569,11 +584,12 @@ The following plot shows examples of auto-encoded images using the
 trained network. For each trained network, 24 images of the training
 set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
-The successive images groups are related to the size of the network
-hidden layer starting from 64 to 2048.
+The successive images groups are related to the sizes of the network
+hidden layers. The order of the groups is the same as on the previous plot
+starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-san-marco-2016-train.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-san-marco-2016-train.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the training set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-marco-2016.md">64x64x3-venezia-san-marco-2016</a> data-set</i>
 </p>
@@ -583,7 +599,7 @@ in the validation set. Again, for each network, 24 images are considered
 showing both their original state and their auto-encoded counterpart.
 
 <p align="center">
-<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16/64x64x3-venezia-san-marco-2016-valid.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb/64x64x3-venezia-san-marco-2016-valid.jpg?raw=true" width="600">
 <br />
 <i>Auto-encoding on the validation set for the <a href="https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-marco-2016.md">64x64x3-venezia-san-marco-2016</a> data-set</i>
 </p>
