@@ -60,6 +60,7 @@ The implementation of the auto-encoders allows to modulate the sizes of the
 hidden layers in order to perform systematic analysis of the networks performances.
 
 * [inv-hsv-osi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/8a02301cb3b9f308.md)
+* [icv-hhv-ohi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16.md)
 
 # Copyright and License
 
