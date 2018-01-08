@@ -39,11 +39,14 @@ Different type of neural networks are analysed in this approach of deep learning
 
 Auto-encoders are used to determine in which extend neural networks are able to learn and generalise specific data-sets in the domain of geodesy and geography. The goal of the study of auto-encoders is to verify their ability to understand the grammar of specific places and environments mainly from the point of view of interpretation and completion.
 
-Several _academic_ auto-encoders are considered and listed here :
+Single-layer auto-encoders :
 
 * [inv-hsv-osi-l2 : 1-layer sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-osi-l2)
 * [icv-hhv-ohi-l2 : 1-layer asinh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-hhv-ohi-l2)
 * [icv-htv-oti-l2 : 1-layer tanh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-htv-oti-l2)
+
+Three-layer auto-encoders :
+
 * [inv-hsv-hsv-hsv-osi-l2 : 3-layer sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-l2)
 * [icv-hhv-hhv-hhv-ohi-l2 : 3-layer asinh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-hhv-hhv-hhv-ohi-l2)
 * [icv-htv-htv-htv-oti-l2 : 3-layer tanh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-htv-htv-htv-oti-l2)
@@ -59,9 +62,14 @@ generalisation results of auto-encoders applied on 2-dimensional image raster.
 The implementation of the auto-encoders allows to modulate the sizes of the
 hidden layers in order to perform systematic analysis of the networks performances.
 
+Research on single-layer auto-encoders :
+
 * [inv-hsv-osi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/8a02301cb3b9f308.md)
 * [icv-hhv-ohi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/7002de414bd53e16.md)
 * [icv-htv-oti-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/1dc3c6eca32c689f.md)
+
+Research on three-layer auto-encoders :
+
 * [inv-hsv-hsv-hsv-osi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb.md)
 * [icv-hhv-hhv-hhv-ohi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/8f7a9e0546192e36.md)
 * [icv-htv-htv-htv-oti-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/752ab4601e1589d8.md)
