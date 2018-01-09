@@ -1,4 +1,4 @@
-# 64x64x3-venezia-campanile-2016
+## 64x64x3-venezia-campanile-2016
 
 This data-set is composed using high resolution and ground-based images of the city of Venice taken in year 2016. The images are 64x64 pixels sRGB rasters and the data-set contains 880 elements. The following image gives an illustration of the content of the data-set by showing a random selection of the data-set elements :
 
