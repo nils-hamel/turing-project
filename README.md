@@ -13,7 +13,7 @@ the results and their subsequent analysis.
 
 Two main type of digital objects are considered in this approach of deep learning applied to geodesy and geography. The first one are the 2-dimensional and 3-dimensional raster containing greyscale of color images. The second type of objects are 3-dimensional or 4-dimensional greyscale or color 3D models sampled over voxel grids. Of course, more complex combination of those objects are also considered for deeper analysis.
 
-### Data-Sets : Image Raster
+### Data-Sets : Image Rasters
 
 Different image data-sets are considered in the conducted research to also analyse the way neural network are able learn different type of representation. The considered data-sets are presented here through their own page :
 
@@ -87,6 +87,8 @@ The _turing-project_ comes with the following package dependencies (Ubuntu 16.04
 
 * bash
 * python3
+* bc
+* imagemagick
 
 and with the following python3 modules :
 

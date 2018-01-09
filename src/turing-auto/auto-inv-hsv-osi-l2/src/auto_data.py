@@ -176,6 +176,24 @@ def ml_data_image_concat( ml_image_a, ml_image_b ):
     # return concatenated images #
     return numpy.c_[ml_image_a, ml_image_b ]
 
+def ml_data_image_decimate_grid( ml_data, ml_grid ):
+
+    # parsing data-set #
+    for ml_parse in range( ml_data.shape[0] ):
+
+        # parsing pixels #
+        for ml_x in range( ml_data.shape[1] ):
+
+            # parsing pixels #
+            for ml_y in range( ml_data.shape[2] ):
+
+                # check decimation condition #
+                if ( ( ml_x % ml_grid ) != 0 ) or ( ( ml_y % ml_grid ) != 0 ):
+
+                    ml_data[ml_parse][ml_x][ml_y][0] = 0
+                    ml_data[ml_parse][ml_x][ml_y][1] = 0
+                    ml_data[ml_parse][ml_x][ml_y][2] = 0
+
 ##
 ##  script - vector manipulation
 ##

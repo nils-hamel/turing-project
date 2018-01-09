@@ -1,4 +1,4 @@
-# Auto-Encoder : inv-hsv-hsv-hsv-osi-l2
+## Auto-Encoder : inv-hsv-hsv-hsv-osi-l2
 
 This directory contains the implementation of a three hidden layer auto-encoder
 for raster images. It is trained using raster images data-sets in grayscale format.
@@ -37,7 +37,7 @@ layer specific content to study the obtained output layer. Finally, the _view_
 mode allows to dumps the parameters of the trained network to produce plots for
 network deep analysis.
 
-# Copyright and License
+## Copyright and License
 
 **turing-project** - Nils Hamel <br >
 Copyright (c) 2016-2018 DHLAB, EPFL
