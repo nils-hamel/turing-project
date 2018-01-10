@@ -607,3 +607,5 @@ The last two plots have the same form. The first one showing results
 on the training set while the second shows results on the validation
 set.
 
+Nils Hamel, 2018-01-08
+Copyright (c) 2018 DHLAB, EPFL
