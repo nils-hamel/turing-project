@@ -89,13 +89,13 @@ ml_g_output = tf.tanh( tf.add( tf.matmul( ml_g_hidden, ml_p_w2 ), ml_p_b2 ) )
 ml_s1_input = tf.placeholder( tf.float32, [ None, ml_h_input ] )
 
 # network topology : output layer #
-ml_s1_output = tf.asinh( tf.add( tf.matmul( ml_s1_input, ml_p_w1 ),ml_p_b1 ) )
+ml_s1_output =  tf.nn.relu( tf.add( tf.matmul( ml_s1_input, ml_p_w1 ),ml_p_b1 ) )
 
 # network topology : input layer #
 ml_s2_input = tf.placeholder( tf.float32, [ None, ml_h_hidden ] )
 
 # network topology : output layer #
-ml_s2_output = tf.asinh( tf.add( tf.matmul( ml_s2_input, ml_p_w2 ), ml_p_b2 ) )
+ml_s2_output = tf.tanh( tf.add( tf.matmul( ml_s2_input, ml_p_w2 ), ml_p_b2 ) )
 
 ##
 ##   script - network objective function
