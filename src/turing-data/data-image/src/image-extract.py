@@ -101,7 +101,7 @@ if ( ml_args.mode == 'full' ):
         print( 'turing : exporting image ' + str( ml_parse ) + '...' )
 
         # export image #
-        ml_export( ml_data[ml_parse,:,:], ml_args.image + '/image-{:06d}.png'.format( ml_parse ) )
+        ml_export( ml_data[ml_parse], ml_args.image + '/image-{:06d}.png'.format( ml_parse ) )
 
     # display information #
     print( 'turing : done' )
@@ -118,5 +118,5 @@ elif ( ml_args.mode == 'sample' ):
         print( 'turing : selected image ' + str( ml_index ) + '...' )
 
         # export image #
-        ml_export( ml_data[ml_index,:,:], ml_args.image + '/image-{:06d}.png'.format( ml_parse ) )
+        ml_export( ml_data[ml_index], ml_args.image + '/image-{:06d}.png'.format( ml_parse ) )
 

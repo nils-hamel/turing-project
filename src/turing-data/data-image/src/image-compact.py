@@ -88,18 +88,26 @@ def ml_normalise( ml_data ):
 # enumerate file in dataset directory #
 for ml_file in os.listdir( ml_args.image ):
 
-    # display information #
-    print( 'turing : compacting ' + ml_file + '...' )
+    # check file extension #
+    if ( ml_file.endswith(".png") ):
 
-    # load portable network graphics image #
-    ml_data = ml_image.imread( ml_args.image + '/' + ml_file )
+        # display information #
+        print( 'turing : compacting ' + ml_file + '...' )
 
-    # normalise image format #
-    ml_data = ml_normalise( ml_data )
+        # load portable network graphics image #
+        ml_data = ml_image.imread( ml_args.image + '/' + ml_file )
 
-    # export image in dataset file #
-    ml_export( ml_data, ml_args.dataset )
+        # normalise image format #
+        ml_data = ml_normalise( ml_data )
 
-# display informatioin #
+        # export image in dataset file #
+        ml_export( ml_data, ml_args.dataset )
+
+    else:
+
+        # display information #
+        print( 'turing : reject ' + ml_file )
+
+# display information #
 print( 'turing : done' )
 
