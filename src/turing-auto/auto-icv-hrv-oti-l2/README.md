@@ -8,8 +8,8 @@ Its topology consist in a input layer that correspond in size to the total amoun
 of greyscale pixels of the data-set images. The input layer is connected to a
 single hidden layer. The size of the unique hidden layer can be modulated using
 the script parameters. The hidden layer is connected to the output layer that has
-the same size as the input layer. The hidden layer has a sigmoid activation function
-as the output layer.
+the same size as the input layer. The hidden layer has a relu activation while
+the output layer comes with a hyperbolic tangent activation function.
 
 The cost function of the network is a simple L2 norm between the input and output
 layers. The theoretical minimum of the cost function is then the identity between
@@ -20,10 +20,11 @@ to be identical from a call to another on a specific data-set and trained
 network. Loading a network that has been trained with a different hidden size
 will raise an error.
 
-The input layer is fed using the raster image from the specified data-set. The
-image are initially converted into greyscale image before to be normalised on the
-[0,1] floating point range. The output image have then to be expected in the same
-format.
+Using an hyperbolic tangent as activation function implies specificity in the
+image input and output format. Instead of being normalised on the [0,1] floating
+point range, the greyscale pixels intensities are normalised on [-1,+1] range.
+The images created by the output layer are also normalised on this specific
+range.
 
 The network implementation script provides different modes. The first mode
 correspond to the network training and retraining process. The second mode
