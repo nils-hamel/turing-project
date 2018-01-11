@@ -33,9 +33,7 @@ allows to auto-encode image of the data-set by specified the image index range.
 The two next mode allows to encode and decode specific image of the data-set again
 using index range. The encoding produce a file in which the state of the central hidden
 layer is dumped, in text mode. The decoding mode allows to provides to the central hidden
-layer specific content to study the obtained output layer. Finally, the _view_
-mode allows to dumps the parameters of the trained network to produce plots for
-network deep analysis.
+layer specific content to study the obtained output layer.
 
 ## Copyright and License
 
