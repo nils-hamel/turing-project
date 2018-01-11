@@ -22,9 +22,8 @@ import argparse
 import numpy
 import sys
 import os
-import auto_data
+import auto_data as td
 import tensorflow as tf
-import matplotlib.pyplot as plt
 
 ##
 ##   script - argument and parameter
@@ -125,22 +124,22 @@ ml_network = tf.train.Saver()
 if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
 
     # import data #
-    ml_data = auto_data.ml_data_import( ml_args.input, ml_args.width )
+    ml_data = td.ml_data_import( ml_args.input, ml_args.width )
 
     # format data #
-    ml_data = auto_data.ml_data_format_y( ml_data )
+    ml_data = td.ml_data_format_y( ml_data )
 
     # format data #
-    ml_data = auto_data.ml_data_format_central( ml_data )
+    ml_data = td.ml_data_format_central( ml_data )
 
     # reshape data #
     ml_data = ml_data.reshape( -1, ml_h_input )
 
     # training and validation loss data #
-    ml_data, ml_train, ml_valid = auto_data.ml_data_split( ml_data, 0.8, ml_args.batch )
+    ml_data, ml_train, ml_valid = td.ml_data_split( ml_data, 0.8, ml_args.batch )
 
     # minibatch count #
-    ml_count = auto_data.ml_data_batch_count( ml_data, ml_args.batch )
+    ml_count = td.ml_data_batch_count( ml_data, ml_args.batch )
 
     # tensorflow session #
     ml_session = tf.Session()
@@ -161,13 +160,13 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
     for ml_epoch in range( ml_args.epoch ):
 
         # randomise data #
-        ml_data = auto_data.ml_data_shuffle( ml_data, auto_data.ml_data_random( ml_data ) )
+        ml_data = td.ml_data_shuffle( ml_data, td.ml_data_random( ml_data ) )
 
         # network training : optimisation steps #
         for ml_stocastic in range( ml_count ):
 
             # extract minibatch #
-            ml_batch = auto_data.ml_data_batch( ml_data, ml_args.batch, ml_stocastic )
+            ml_batch = td.ml_data_batch( ml_data, ml_args.batch, ml_stocastic )
 
             # optimisation step #
             ml_session.run( ml_o_mopt, feed_dict={ ml_g_input : ml_batch } )
@@ -185,7 +184,7 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
         print( 'epoch :', "{:06d}".format(ml_epoch), ': t_loss =', "{:0.4e}".format(ml_t_loss[0]), ': v_loss =', "{:0.4e}".format(ml_v_loss[0]) )
 
     # export loss #
-    auto_data.ml_data_vector_save( ml_loss, ml_args.network + '/loss-data' )
+    td.ml_data_vector_save( ml_loss, ml_args.network + '/loss-data' )
 
     # export network #
     ml_network.save( ml_session, ml_args.network )
@@ -194,19 +193,19 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
 elif ( ml_args.mode == 'auto' ):
 
     # import data #
-    ml_data = auto_data.ml_data_import( ml_args.input, ml_args.width )
+    ml_data = td.ml_data_import( ml_args.input, ml_args.width )
 
     # format data #
-    ml_data = auto_data.ml_data_format_y( ml_data )
+    ml_data = td.ml_data_format_y( ml_data )
 
     # format data #
-    ml_data = auto_data.ml_data_format_central( ml_data )
+    ml_data = td.ml_data_format_central( ml_data )
 
     # reshape data #
     ml_data = ml_data.reshape( -1, ml_h_input )
 
     # extract data range #
-    ml_data = auto_data.ml_data_range( ml_data, ml_args.start, ml_args.stop )
+    ml_data = td.ml_data_range( ml_data, ml_args.start, ml_args.stop )
 
     # tensorflow session #
     ml_session = tf.Session()
@@ -222,32 +221,32 @@ elif ( ml_args.mode == 'auto' ):
     ml_auto = ml_auto.reshape( -1, ml_args.width, ml_args.width )
 
     # format image #
-    ml_data = auto_data.ml_data_format_central_invert( ml_data )
-    ml_auto = auto_data.ml_data_format_central_invert( ml_auto )
+    ml_data = td.ml_data_format_central_invert( ml_data )
+    ml_auto = td.ml_data_format_central_invert( ml_auto )
 
     # parsing range #
     for ml_export in range( ml_data.shape[0] ):
 
         # export auto-encoded with prior #
-        auto_data.ml_data_image_save( auto_data.ml_data_image_concat( ml_data[ml_export], ml_auto[ml_export] ), ml_args.output + '/image-{:06d}.png'.format( ml_export + ml_args.start ) )
+        td.ml_data_image_save( td.ml_data_image_concat( ml_data[ml_export], ml_auto[ml_export] ), ml_args.output + '/image-{:06d}.png'.format( ml_export + ml_args.start ) )
 
 # script mode #
 elif ( ml_args.mode == 'encode' ):
 
     # import data #
-    ml_data = auto_data.ml_data_import( ml_args.input, ml_args.width )
+    ml_data = td.ml_data_import( ml_args.input, ml_args.width )
 
     # format data #
-    ml_data = auto_data.ml_data_format_y( ml_data )
+    ml_data = td.ml_data_format_y( ml_data )
 
     # format data #
-    ml_data = auto_data.ml_data_format_central( ml_data )
+    ml_data = td.ml_data_format_central( ml_data )
 
     # reshape data #
     ml_data = ml_data.reshape( -1, ml_h_input )
 
     # extract data range #
-    ml_data = auto_data.ml_data_range( ml_data, ml_args.start, ml_args.stop )
+    ml_data = td.ml_data_range( ml_data, ml_args.start, ml_args.stop )
 
     # tensorflow session #
     ml_session = tf.Session()
@@ -259,13 +258,13 @@ elif ( ml_args.mode == 'encode' ):
     ml_encode = ml_session.run( ml_s1_output, feed_dict={ ml_s1_input  : ml_data } )
 
     # export projection #
-    auto_data.ml_data_vector_save( ml_encode, ml_args.output + '/vector-{:06d}'.format( ml_args.start ) )
+    td.ml_data_vector_save( ml_encode, ml_args.output + '/vector-{:06d}'.format( ml_args.start ) )
 
 # script mode #
 elif ( ml_args.mode == 'decode' ):
 
     # import vector #
-    ml_data = auto_data.ml_data_vector_load( ml_args.input )
+    ml_data = td.ml_data_vector_load( ml_args.input )
 
     # check consistency #
     if ( ml_data.shape[1] != ml_h_hidden ):
@@ -286,11 +285,11 @@ elif ( ml_args.mode == 'decode' ):
     ml_decode = ml_decode.reshape( -1, ml_args.width, ml_args.width )
 
     # format image #
-    ml_decode = auto_data.ml_data_format_central_invert( ml_decode )
+    ml_decode = td.ml_data_format_central_invert( ml_decode )
 
     # parsing range #
     for ml_parse in range( ml_data.shape[0] ):
 
         # export decoded #
-        auto_data.ml_data_image_save( ml_decode[ml_parse], ml_args.output + '/image-{:06d}.png'.format( ml_parse ) )
+        td.ml_data_image_save( ml_decode[ml_parse], ml_args.output + '/image-{:06d}.png'.format( ml_parse ) )
 

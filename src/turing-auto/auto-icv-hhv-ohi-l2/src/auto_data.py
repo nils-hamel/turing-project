@@ -165,8 +165,11 @@ def ml_data_batch( ml_data, ml_batch_size, ml_index ):
 
 def ml_data_image_save( ml_image, ml_path ):
 
-    # create 3-layers matrix #
-    ml_image = numpy.reshape( numpy.repeat( ml_image[:, :, numpy.newaxis], 3, axis=2 ), newshape=( ml_image.shape[0], ml_image.shape[1], 3 ) )
+    # check image format #
+    if ( ml_image.ndim == 2 ):
+
+        # create 3-layers matrix #
+        ml_image = numpy.reshape( numpy.repeat( ml_image[:, :, numpy.newaxis], 3, axis=2 ), newshape=( ml_image.shape[0], ml_image.shape[1], 3 ) )
 
     # export image #
     image.imsave( ml_path, ml_image )
