@@ -132,13 +132,8 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
     # reshape data #
     ml_data = ml_data.reshape( -1, ml_h_input )
 
-    print( ml_data.shape )
-
     # training and validation loss data #
     ml_data, ml_train, ml_valid = td.ml_data_split( ml_data, 0.8, ml_args.batch )
-
-    print( ml_data.shape, ml_train.shape, ml_valid.shape )
-    #sys.exit('abort')
 
     # minibatch count #
     ml_count = td.ml_data_batch_count( ml_data, ml_args.batch )
