@@ -296,24 +296,3 @@ elif ( ml_args.mode == 'decode' ):
         # export decoded #
         auto_data.ml_data_image_save( ml_decode[ml_parse], ml_args.output + '/image-{:06d}.png'.format( ml_parse ) )
 
-# script mode #
-elif ( ml_args.mode == 'view' ):
-
-    # tensorflow session #
-    ml_session = tf.Session()
-
-    # import network #
-    ml_network.restore( ml_session, ml_args.network )
-
-    # export weights #
-    auto_data.ml_data_vector_save( ml_p_w1.eval( ml_session ), ml_args.output + '/w-layer-ih' )
-    auto_data.ml_data_vector_save( ml_p_w2.eval( ml_session ), ml_args.output + '/w-layer-hc' )
-    auto_data.ml_data_vector_save( ml_p_w3.eval( ml_session ), ml_args.output + '/w-layer-ch' )
-    auto_data.ml_data_vector_save( ml_p_w4.eval( ml_session ), ml_args.output + '/w-layer-ho' )
-
-    # export biases #
-    auto_data.ml_data_vector_save( ml_p_b1.eval( ml_session ), ml_args.output + '/b-layer-ih' )
-    auto_data.ml_data_vector_save( ml_p_b2.eval( ml_session ), ml_args.output + '/b-layer-hc' )
-    auto_data.ml_data_vector_save( ml_p_b3.eval( ml_session ), ml_args.output + '/b-layer-ch' )
-    auto_data.ml_data_vector_save( ml_p_b4.eval( ml_session ), ml_args.output + '/b-layer-ho' )
-
