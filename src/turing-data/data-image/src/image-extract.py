@@ -63,26 +63,23 @@ def ml_import( ml_path, ml_size ):
         # send message #
         sys.exit( 'turing : error : unable to access dataset' )
 
-    # create input stream #
+    # dataset input stream #
     with open( ml_path, 'rb' ) as ml_file:
 
-        # read bytes #
+        # import bytes #
         ml_byte = ml_file.read( os.path.getsize( ml_path ) )
 
-    # convert data #
+    # convert to numpy array #
     ml_data = numpy.frombuffer( ml_byte, dtype=numpy.uint8 )
 
-    # convert data #
+    # floating-point array #
     ml_data = ml_data.astype( numpy.float32 )
 
-    # renormalise on [0,1] range #
+    # renormalise on range [0,1] #
     ml_data = numpy.multiply( ml_data, 1.0 / 255.0 )
 
-    # reshape array #
-    ml_data = ml_data.reshape( -1, ml_size, ml_size, 3 )
-
-    # return array #
-    return ml_data
+    # return dataset #
+    return ml_data.reshape( -1, ml_size, ml_size, 3 )
 
 ##
 ##  script - main function

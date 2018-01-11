@@ -60,16 +60,16 @@ def ml_data_import( ml_path, ml_size ):
 def ml_data_format_y( ml_data ):
     
     # return converted data #
-    return 0.2126 * ml_data[:,:,:,0] + 0.7152 * ml_data[:,:,:,1] + 0.0722 * ml_data[:,:,:,2]
+    return ( 0.2126 * ml_data[:,:,:,0] + 0.7152 * ml_data[:,:,:,1] + 0.0722 * ml_data[:,:,:,2] )
 
 def ml_data_format_central( ml_data ):
 
-    # return centralised dataset - normalisation on [-1,+1] #
+    # return renormalisation from [0,+1] to [-1,+1] #
     return numpy.multiply( ml_data - 0.5, 2.0 )
 
 def ml_data_format_central_invert( ml_data ):
 
-    # return inverted centralised dataset #
+    # return renormalisation from [-1,+1] to [0,+1] #
     return numpy.multiply( ml_data + 1.0, 0.5 )
 
 ##
@@ -81,10 +81,10 @@ def ml_data_random( ml_data ):
     # create index array #
     ml_index = numpy.arange( ml_data.shape[0] )
 
-    # randomise index array #
+    # shuffle index array #
     numpy.random.shuffle( ml_index )
 
-    # return randomised index #
+    # return shuffle index array #
     return ml_index
 
 def ml_data_shuffle( ml_data, ml_index ):
@@ -98,7 +98,7 @@ def ml_data_shuffle( ml_data, ml_index ):
     # create data copy #
     ml_copy = numpy.copy( ml_data )
 
-    # parsing index #
+    # parsing dataset #
     for ml_parse in range( ml_data.shape[0] ):
 
         # assign element #
@@ -113,14 +113,14 @@ def ml_data_shuffle( ml_data, ml_index ):
 
 def ml_data_split( ml_data, ml_proportion, ml_batch_size ):
 
-    # compute splitting index #
-    ml_index = int( ml_data.shape[0] * ml_proportion )
+    # compute batch-size compatible boundary index #
+    ml_index = int( int( ml_data.shape[0] * ml_proportion ) / ml_batch_size ) * ml_batch_size
 
-    # compute nearest batch multiple #
-    ml_index = int( ml_index / ml_batch_size ) * ml_batch_size
+    # compute upper boundary #
+    ml_bound = ml_index + ml_batch_size
 
-    # return splitted dataset #
-    return numpy.copy( ml_data[:ml_index] ), numpy.copy( ml_data[:ml_data.shape[0] - ml_index] ), numpy.copy( ml_data[ml_index:] )
+    # compose and return training/validation ranges #
+    return ml_data[:ml_index], numpy.copy( ml_data[:ml_batch_size] ), numpy.copy( ml_data[ml_index:ml_bound] )
 
 def ml_data_range( ml_data, ml_start, ml_stop ):
 
@@ -131,7 +131,7 @@ def ml_data_range( ml_data, ml_start, ml_stop ):
         sys.exit( 'turing : error : selection out of range' )
 
     # return selected range #
-    return numpy.copy( ml_data[ml_start:ml_stop] )
+    return ml_data[ml_start:ml_stop]
 
 ##
 ##  script - dataset minibatch
@@ -153,7 +153,7 @@ def ml_data_batch( ml_data, ml_batch_size, ml_index ):
     # compute offset #
     ml_offset = ml_batch_size * ml_index
 
-    # compute boundary #
+    # compute upper boundary #
     ml_bound = ml_offset + ml_batch_size
 
     # return minibatch #
@@ -175,24 +175,6 @@ def ml_data_image_concat( ml_image_a, ml_image_b ):
 
     # return concatenated images #
     return numpy.c_[ml_image_a, ml_image_b ]
-
-def ml_data_image_decimate_grid( ml_data, ml_grid ):
-
-    # parsing data-set #
-    for ml_parse in range( ml_data.shape[0] ):
-
-        # parsing pixels #
-        for ml_x in range( ml_data.shape[1] ):
-
-            # parsing pixels #
-            for ml_y in range( ml_data.shape[2] ):
-
-                # check decimation condition #
-                if ( ( ml_x % ml_grid ) != 0 ) or ( ( ml_y % ml_grid ) != 0 ):
-
-                    ml_data[ml_parse][ml_x][ml_y][0] = 0
-                    ml_data[ml_parse][ml_x][ml_y][1] = 0
-                    ml_data[ml_parse][ml_x][ml_y][2] = 0
 
 ##
 ##  script - vector manipulation
