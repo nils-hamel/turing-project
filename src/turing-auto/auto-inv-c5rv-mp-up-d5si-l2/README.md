@@ -17,9 +17,8 @@ the input and output layer.
 
 As the convolution depth can be modulated in size, using the script parameters,
 it has to be identical from a call to another on a specific data-set and trained
-network. Loading a network that has been trained with a different hidden size
+network. Loading a network that has been trained with a different size
 will raise an error.
-
 
 The input layer is fed using the raster image from the specified data-set. The
 image are initially converted into greyscale image before to be normalised on the
