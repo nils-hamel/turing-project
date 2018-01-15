@@ -76,6 +76,10 @@ Research on single-layer auto-encoders :
 * [icv-hrv-ohi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/c13e876576c6ecb0.md)
 * [icv-hrv-oti-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/72d52f8ddd4b6619.md)
 
+Research on single-convolution auto-encoders :
+
+* [inv-c5rv-mp-up-d5si-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/5c6f602bcd5ba11e.md)
+
 Research on three-layer auto-encoders :
 
 * [inv-hsv-hsv-hsv-osi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb.md)
