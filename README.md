@@ -46,6 +46,7 @@ Single-layer auto-encoders :
 * [icv-htv-oti-l2 : 1-layer tanh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-htv-oti-l2)
 * [icv-hrv-ohi-l2 : 1-layer relu/asinh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-hrv-ohi-l2)
 * [icv-hrv-oti-l2 : 1-layer relu/tanh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-hrv-oti-l2)
+* [inv-hsv-osi-ce : 1-layer sigmoid-ce auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-osi-ce)
 
 Single-convolution auto-encoders :
 
@@ -56,6 +57,7 @@ Three-layer auto-encoders :
 * [inv-hsv-hsv-hsv-osi-l2 : 3-layer sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-l2)
 * [icv-hhv-hhv-hhv-ohi-l2 : 3-layer asinh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-hhv-hhv-hhv-ohi-l2)
 * [icv-htv-htv-htv-oti-l2 : 3-layer tanh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-icv-htv-htv-htv-oti-l2)
+* [inv-hsv-hsv-hsv-osi-ce : 3-layer sigmoid-ce auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-ce)
 
 ## Turing Project : Researches
 
