@@ -30,7 +30,7 @@ import tensorflow as tf
 ##
 
 # create argument parser #
-ml_apar = argparse.ArgumentParser( description='Research auto-encoder built using tensorflow' )
+ml_apar = argparse.ArgumentParser( description='Research auto-encoder built with tensorflow' )
 
 # argument directive #
 ml_apar.add_argument( '-m', '--mode'   , type=str, help='script mode'  )
@@ -40,6 +40,7 @@ ml_apar.add_argument( '-i', '--input'  , type=str, help='input path'   )
 ml_apar.add_argument( '-o', '--output' , type=str, help='output path'  )
 ml_apar.add_argument( '-w', '--width'  , type=int, help='image width'  )
 ml_apar.add_argument( '-1', '--layer1' , type=int, help='layer size'   )
+ml_apar.add_argument( '-2', '--layer2' , type=int, help='layer size'   )
 ml_apar.add_argument( '-n', '--network', type=str, help='network path' )
 ml_apar.add_argument( '-u', '--start'  , type=int, help='range start'  )
 ml_apar.add_argument( '-v', '--stop'   , type=int, help='range stop'   )
@@ -52,20 +53,25 @@ ml_args = ml_apar.parse_args()
 ##
 
 # network hyper-parameter #
-ml_h_input  = ml_args.width ** 2
-ml_h_hidden = ml_args.layer1
+ml_h_input   = ml_args.width ** 2
+ml_h_hidden1 = ml_args.layer1
+ml_h_hidden2 = ml_args.layer2
 
 ##
 ##   script - network parameter
 ##
 
 # network parameter : weights #
-ml_p_w1 = tf.Variable( tf.random_normal( [ ml_h_input, ml_h_hidden ], stddev=0.05 ) )
-ml_p_w2 = tf.Variable( tf.random_normal( [ ml_h_hidden, ml_h_input ], stddev=0.05 ) )
+ml_p_w1 = tf.Variable( tf.random_normal( [ ml_h_input  , ml_h_hidden1 ], stddev=0.05 ) )
+ml_p_w2 = tf.Variable( tf.random_normal( [ ml_h_hidden1, ml_h_hidden2 ], stddev=0.05 ) )
+ml_p_w3 = tf.Variable( tf.random_normal( [ ml_h_hidden2, ml_h_hidden1 ], stddev=0.05 ) )
+ml_p_w4 = tf.Variable( tf.random_normal( [ ml_h_hidden1, ml_h_input   ], stddev=0.05 ) )
 
 # network parameter : biases #
-ml_p_b1 = tf.Variable( tf.zeros( [ ml_h_hidden ] ) )
-ml_p_b2 = tf.Variable( tf.zeros( [ ml_h_input  ] ) )
+ml_p_b1 = tf.Variable( tf.zeros( [ ml_h_hidden1 ] ) )
+ml_p_b2 = tf.Variable( tf.zeros( [ ml_h_hidden2 ] ) )
+ml_p_b3 = tf.Variable( tf.zeros( [ ml_h_hidden1 ] ) )
+ml_p_b4 = tf.Variable( tf.zeros( [ ml_h_input   ] ) )
 
 ##
 ##   script - network topology
@@ -75,13 +81,19 @@ ml_p_b2 = tf.Variable( tf.zeros( [ ml_h_input  ] ) )
 ml_g_input = tf.placeholder( tf.float32, [ None, ml_h_input ] )
 
 # network topology : hidden layer #
-ml_g_hidden = tf.nn.sigmoid( tf.add( tf.matmul( ml_g_input, ml_p_w1 ), ml_p_b1 ) )
+ml_g_hidden_a = tf.nn.sigmoid( tf.add( tf.matmul( ml_g_input, ml_p_w1 ), ml_p_b1 ) )
+
+# network topology : hidden layer #
+ml_g_hidden_b = tf.nn.sigmoid( tf.add( tf.matmul( ml_g_hidden_a, ml_p_w2 ), ml_p_b2 ) )
+
+# network topology : hidden layer #
+ml_g_hidden_c = tf.nn.sigmoid( tf.add( tf.matmul( ml_g_hidden_b, ml_p_w3 ), ml_p_b3 ) )
 
 # network topology : objective function #
-ml_g_object = tf.add( tf.matmul( ml_g_hidden, ml_p_w2 ), ml_p_b2 )
+ml_g_object = tf.add( tf.matmul( ml_g_hidden_c, ml_p_w4 ), ml_p_b4 )
 
 # network topology : output layer #
-ml_g_output = tf.nn.sigmoid( tf.add( tf.matmul( ml_g_hidden, ml_p_w2 ), ml_p_b2 ) )
+ml_g_output = tf.nn.sigmoid( tf.add( tf.matmul( ml_g_hidden_c, ml_p_w4 ), ml_p_b4 ) )
 
 ##
 ##   script - network sub-topology
@@ -91,19 +103,25 @@ ml_g_output = tf.nn.sigmoid( tf.add( tf.matmul( ml_g_hidden, ml_p_w2 ), ml_p_b2 
 ml_s1_input = tf.placeholder( tf.float32, [ None, ml_h_input ] )
 
 # network topology : output layer #
-ml_s1_output = tf.nn.sigmoid( tf.add( tf.matmul( ml_s1_input, ml_p_w1 ),ml_p_b1 ) )
-
-# network topology : input layer #
-ml_s2_input = tf.placeholder( tf.float32, [ None, ml_h_hidden ] )
+ml_s1_hidden = tf.nn.sigmoid( tf.add( tf.matmul( ml_s1_input, ml_p_w1 ),ml_p_b1 ) )
 
 # network topology : output layer #
-ml_s2_output = tf.nn.sigmoid( tf.add( tf.matmul( ml_s2_input, ml_p_w2 ), ml_p_b2 ) )
+ml_s1_output = tf.nn.sigmoid( tf.add( tf.matmul( ml_s1_hidden, ml_p_w2 ),ml_p_b2 ) )
+
+# network topology : input layer #
+ml_s2_input = tf.placeholder( tf.float32, [ None, ml_h_hidden2 ] )
+
+# network topology : output layer #
+ml_s2_hidden = tf.nn.sigmoid( tf.add( tf.matmul( ml_s2_input, ml_p_w3 ), ml_p_b3 ) )
+
+# network topology : output layer #
+ml_s2_output = tf.nn.sigmoid( tf.add( tf.matmul( ml_s2_hidden, ml_p_w4 ), ml_p_b4 ) )
 
 ##
 ##   script - network objective function
 ##
 
-# objective function : mean(cross-entropy) #
+# objective function : mean(L2) #
 ml_o_loss = tf.reduce_mean( tf.nn.sigmoid_cross_entropy_with_logits( logits=ml_g_object, labels=ml_g_input ) )
 
 ##
@@ -181,7 +199,7 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
         ml_loss.append( [ ml_t_loss[0], ml_v_loss[0] ] )
 
         # display information on loss #
-        print( 'epoch :', "{:06d}".format(ml_epoch), ': t_loss =', "{:0.4e}".format(ml_t_loss[0]), ': v_loss =', "{:0.4e}".format(ml_v_loss[0]) )
+        print( 'epoch :', "{:06d}".format(ml_epoch), ' : t_loss =', "{:0.4e}".format(ml_t_loss[0]), ' : v_loss =', "{:0.4e}".format(ml_v_loss[0]) )
 
     # export loss #
     td.ml_data_vector_save( ml_loss, ml_args.network + '/loss-data' )
@@ -257,7 +275,7 @@ elif ( ml_args.mode == 'decode' ):
     ml_data = td.ml_data_vector_load( ml_args.input )
 
     # check consistency #
-    if ( ml_data.shape[1] != ml_h_hidden ):
+    if ( ml_data.shape[1] != ml_h_hidden2 ):
 
         # send message #
         sys.exit( 'turing : error : inconsistent vector' )
