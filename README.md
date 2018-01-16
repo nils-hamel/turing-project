@@ -81,6 +81,7 @@ Research on single-layer auto-encoders :
 * [icv-htv-oti-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/1dc3c6eca32c689f.md)
 * [icv-hrv-ohi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/c13e876576c6ecb0.md)
 * [icv-hrv-oti-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/72d52f8ddd4b6619.md)
+* [inv-hsv-osi-ce training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/f343816a10b17cc9.md)
 
 Research on single-convolution auto-encoders :
 
@@ -91,6 +92,7 @@ Research on three-layer auto-encoders :
 * [inv-hsv-hsv-hsv-osi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/ce026ed0ca472cbb.md)
 * [icv-hhv-hhv-hhv-ohi-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/8f7a9e0546192e36.md)
 * [icv-htv-htv-htv-oti-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/752ab4601e1589d8.md)
+* [inv-hsv-hsv-hsv-osi-ce training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/c51df6368f404cc5.md)
 
 # Copyright and License
 
