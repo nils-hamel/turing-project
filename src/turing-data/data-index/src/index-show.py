@@ -120,10 +120,10 @@ def ml_raster_convert( ml_raster ):
 ##
 
 # import raster array #
-ml_raster = ml_raster_import( ml_args.raster )
+ml_data = ml_raster_import( ml_args.raster )
 
 # convert raster to point set #
-ml_point = ml_raster_convert( ml_raster )
+ml_data = ml_raster_convert( ml_data )
 
 # create figure #
 ml_figure = plt.figure()
@@ -132,7 +132,7 @@ ml_figure = plt.figure()
 ml_plot = ml_figure.add_subplot( 111, projection='3d' )
 
 # create scatter plot #
-ml_plot.scatter(ml_point[:,2], ml_point[:,1], ml_point[:,0], c=ml_point[:,0], s=8, marker='o', edgecolor='none', cmap='RdPu', vmin=0, vmax=1 )
+ml_plot.scatter(ml_data[:,2], ml_data[:,1], ml_data[:,0], c=ml_data[:,0], s=8, marker='o', edgecolor='none', cmap='RdPu', vmin=0, vmax=1 )
 
 # setting axis labels #
 ml_plot.set_xlabel( 'lon' )

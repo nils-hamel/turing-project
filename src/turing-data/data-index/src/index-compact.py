@@ -32,76 +32,65 @@ import matplotlib.image as ml_image
 ml_apar = argparse.ArgumentParser()
 
 # argument directive #
-ml_apar.add_argument( '-i', '--image'  , type=str, help='image path'   )
+ml_apar.add_argument( '-r', '--raster' , type=str, help='raster path'  )
 ml_apar.add_argument( '-d', '--dataset', type=str, help='dataset path' )
 
 # read argument and parameter #
 ml_args = ml_apar.parse_args()
 
 ##
-##  script - image exportation
+##  script - raster i/o operation
 ##
 
-def ml_export( ml_data, ml_path ):
+def ml_raster_import( ml_path ):
+
+    # check consistency #
+    if ( not os.path.exists( ml_path ) ):
+
+        # send message #
+        sys.exit( 'turing : error : unable to access raster' )
+
+    # retrieve raster size #
+    ml_size = os.path.getsize( ml_path )
+
+    # compute raster width #
+    ml_width = int( round( ml_size ** ( 1.0 / 3.0 ) ) )
+
+    # import raster data #
+    with open( ml_path, 'rb' ) as ml_file:
+
+        # read raster bytes #
+        ml_byte = ml_file.read( ml_size )
+
+    # convert to numpy array #
+    ml_data = numpy.frombuffer( ml_byte, dtype=numpy.uint8 )
+
+    # return raster array #
+    return ml_data.reshape( ml_width, ml_width, ml_width )
+
+def ml_raster_export( ml_data, ml_path ):
 
     # create output stream #
     with open( ml_path, 'ab' ) as ml_file:
 
-        # export array #
-        numpy.array( ml_data, dtype=numpy.uint8 ).tofile( ml_file )
-
-##
-##  script - image normalisation
-##
-
-def ml_normalise( ml_data ):
-
-    # check image format #
-    if ( len( ml_data.shape ) == 3 ):
-
-        # check image format #
-        if ( ml_data.shape[2] == 4 ):
-
-            # remove alpha layer #
-            ml_data = ml_data[:,:,:3]
-
-        elif ( ml_data.shape[2] != 3 ):
-
-            # send message #
-            sys.exit( 'turing : error : unknown image format' )
-
-    else:
-
-        # send message #
-        sys.exit( 'turing : error : unknown image format' )
-
-    # normalise on [0,255] range #
-    ml_data = numpy.multiply( ml_data, 255.0 )
-
-    # return image #
-    return ml_data
+        # export raster array #
+        numpy.array( ml_data, dtype=numpy.uint8 ).tofile( ml_file )    
 
 ##
 ##  script - main function
 ##
 
 # enumerate file in dataset directory #
-for ml_file in os.listdir( ml_args.image ):
+for ml_file in os.listdir( ml_args.raster ):
 
     # check file extension #
-    if ( ml_file.endswith(".png") ):
+    if ( ml_file.endswith( ".ras" ) ):
 
         # display information #
         print( 'turing : compacting ' + ml_file + ' ...' )
 
-        # load portable network graphics image #
-        ml_data = ml_image.imread( ml_args.image + '/' + ml_file )
-
-        # normalise image format #
-        ml_data = ml_normalise( ml_data )
-
-        # export image in dataset file #
-        ml_export( ml_data, ml_args.dataset )
+        # import and export raster in dataset #
+        ml_raster_export( ml_raster_import( ml_args.raster + '/' + ml_file ), ml_args.dataset )
 
     else:
 
