@@ -68,9 +68,6 @@ def ml_raster_import( ml_path ):
     # convert to numpy array #
     ml_data = numpy.frombuffer( ml_byte, dtype=numpy.uint8 )
 
-    # floating point array #
-    ml_data = ml_data.astype( numpy.float32 )
-
     # return raster array #
     return ml_data.reshape( ml_width, ml_width, ml_width )
 
