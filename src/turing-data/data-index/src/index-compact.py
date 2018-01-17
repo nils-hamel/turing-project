@@ -22,7 +22,6 @@ import argparse
 import numpy
 import os
 import sys
-import matplotlib.image as ml_image
 
 ##
 ##  script - argument and parameter

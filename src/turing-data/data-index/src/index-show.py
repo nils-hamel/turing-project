@@ -22,7 +22,7 @@ import argparse
 import numpy
 import os
 import sys
-import matplotlib
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import mpl_toolkits.mplot3d as plt3d
 import matplotlib.cm as cm
@@ -151,11 +151,11 @@ ml_plot.set_zlim( 0, 1 )
 ml_plot.view_init( elev=66, azim=225)
 
 # update plot font size #
-matplotlib.rcParams.update({'font.size': 8})
+mpl.rcParams.update( { 'font.size': 8 } )
 
 # export figure #
 plt.savefig( ml_args.plot, bbox_inches='tight' )
 
 # destroy figure #
-plt.close(ml_figure)
+plt.close( ml_figure )
 

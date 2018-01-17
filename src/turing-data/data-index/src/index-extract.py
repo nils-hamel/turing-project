@@ -23,7 +23,6 @@ import numpy
 import os
 import sys
 import random
-import matplotlib.image as ml_image
 
 ##
 ##  script - argument and parameter
@@ -35,27 +34,30 @@ ml_apar = argparse.ArgumentParser()
 # argument directive #
 ml_apar.add_argument( '-m', '--mode'   , type=str, help='script mode'  )
 ml_apar.add_argument( '-d', '--dataset', type=str, help='dataset path' )
-ml_apar.add_argument( '-w', '--width'  , type=int, help='image width'  )
-ml_apar.add_argument( '-i', '--image'  , type=str, help='image path'   )
-ml_apar.add_argument( '-c', '--count'  , type=int, help='image count'  )
+ml_apar.add_argument( '-w', '--width'  , type=int, help='raster width' )
+ml_apar.add_argument( '-r', '--raster' , type=str, help='raster path'  )
+ml_apar.add_argument( '-c', '--count'  , type=int, help='raster count' )
 
 # read argument and parameter #
 ml_args = ml_apar.parse_args()
 
 ##
-##  script - image exportation
+##  script - raster exportation
 ##
 
-def ml_export( ml_data, ml_path ):
+def ml_raster_export( ml_data, ml_path ):
 
-    # export image #
-    ml_image.imsave( ml_path, ml_data )
+    # create output stream #
+    with open( ml_path, 'ab' ) as ml_file:
+
+        # export raster array #
+        numpy.array( ml_data, dtype=numpy.uint8 ).tofile( ml_file )
 
 ##
-##  script - dataset importation
+##  script - dataset exportation
 ##
 
-def ml_import( ml_path, ml_size ):
+def ml_raster_import( ml_path, ml_width ):
 
     # check consistency #
     if ( not os.path.exists( ml_path ) ):
@@ -63,7 +65,7 @@ def ml_import( ml_path, ml_size ):
         # send message #
         sys.exit( 'turing : error : unable to access dataset' )
 
-    # dataset input stream #
+    # create input stream #
     with open( ml_path, 'rb' ) as ml_file:
 
         # import bytes #
@@ -72,50 +74,44 @@ def ml_import( ml_path, ml_size ):
     # convert to numpy array #
     ml_data = numpy.frombuffer( ml_byte, dtype=numpy.uint8 )
 
-    # floating-point array #
-    ml_data = ml_data.astype( numpy.float32 )
-
-    # renormalise on range [0,1] #
-    ml_data = numpy.multiply( ml_data, 1.0 / 255.0 )
-
     # return dataset #
-    return ml_data.reshape( -1, ml_size, ml_size, 3 )
+    return( ml_data.reshape( -1, ml_width, ml_width, ml_width ) )
 
 ##
 ##  script - main function
 ##
 
-# import data #
-ml_data = ml_import( ml_args.dataset, ml_args.width )
+# import dataset #
+ml_data = ml_raster_import( ml_args.dataset, ml_args.width )
 
-# check extraction mode #
+# check script mode #
 if ( ml_args.mode == 'full' ):
 
-    # parsing data #
+    # parsing dataset #
     for ml_parse in range( ml_data.shape[0] ):
 
         # display information #
-        print( 'turing : exporting image ' + str( ml_parse ) + '...' )
+        print( 'turing : export raster ' + str( ml_parse ) + ' ...' )
 
-        # export image #
-        ml_export( ml_data[ml_parse], ml_args.image + '/image-{:06d}.png'.format( ml_parse ) )
+        # export raster #
+        ml_raster_export( ml_data[ml_parse], ml_args.raster + '/raster-{:06d}.ras'.format( ml_parse ) )
 
     # display information #
     print( 'turing : done' )
 
 elif ( ml_args.mode == 'sample' ):
 
-    # parsing data #
+    # parsing dataset #
     for ml_parse in range( ml_args.count ):
 
         # create random index #
         ml_index = random.randint( 0, ml_data.shape[0] - 1 )
 
         # display information #
-        print( 'turing : selected image ' + str( ml_index ) + '...' )
+        print( 'turing : export raster ' + str( ml_index ) + ' ...' )
 
-        # export image #
-        ml_export( ml_data[ml_index], ml_args.image + '/image-{:06d}.png'.format( ml_parse ) )
+        # export raster #
+        ml_raster_export( ml_data[ml_parse], ml_args.raster + '/raster-{:06d}.ras'.format( ml_index ) )
 
     # display information #
     print( 'turing : done' )
