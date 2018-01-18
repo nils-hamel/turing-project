@@ -96,7 +96,7 @@ function ml_min() {
 }
 
 ##
-##  script - main
+##  script - main function
 ##
 
 # arguments and parameters #

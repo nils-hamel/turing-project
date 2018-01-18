@@ -129,7 +129,7 @@ ml_figure = plt.figure()
 ml_plot = ml_figure.add_subplot( 111, projection='3d' )
 
 # create scatter plot #
-ml_plot.scatter(ml_data[:,2], ml_data[:,1], ml_data[:,0], c=ml_data[:,0], s=8, marker='o', edgecolor='none', cmap='RdPu', vmin=0, vmax=1 )
+ml_plot.scatter(ml_data[:,2], ml_data[:,1], ml_data[:,0], c=ml_data[:,0], s=8, marker='o', edgecolor='none', cmap='inferno', vmin=0.0, vmax=1.0 )
 
 # setting axis labels #
 ml_plot.set_xlabel( 'lon' )
@@ -140,18 +140,26 @@ ml_plot.set_zlabel( 'alt' )
 ml_plot.set_aspect( 'equal' )
 
 # setting axis limits #
-ml_plot.set_xlim( 0, 1 )
-ml_plot.set_ylim( 0, 1 )
-ml_plot.set_zlim( 0, 1 )
+ml_plot.set_xlim( 0.0, 1.0 )
+ml_plot.set_ylim( 0.0, 1.0 )
+ml_plot.set_zlim( 0.0, 1.0 )
 
 # setting plot initial camera view #
-ml_plot.view_init( elev=66, azim=225)
+ml_plot.view_init( elev=66, azim=225 )
 
 # update plot font size #
 mpl.rcParams.update( { 'font.size': 8 } )
 
-# export figure #
-plt.savefig( ml_args.plot, bbox_inches='tight' )
+# check display switch #
+if ( ml_args.plot is not None ):
+
+    # export figure #
+    plt.savefig( ml_args.plot, bbox_inches='tight' )
+
+else:
+
+    # display figure #
+    plt.show()
 
 # destroy figure #
 plt.close( ml_figure )
