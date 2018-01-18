@@ -1,15 +1,13 @@
-## Auto-Encoder : inv-c5rv-mp-hsv-osi-l2
+## Auto-Encoder : inv-c5rv-hsv-osi-l2
 
 This directory constains the implementation of a asymmetrical auto-encoder for
 image rasters. It is trained using raster images data-sets in greyscale format.
 
-The topology of the network consist in the first place in a convolutional layer
-followed by a max-pool layer. The activation function of the convolutional layer
-is a _relu_ function. Following the max-pool layer, a dense hidden layer fully
-connected with the max-pool layer is set. The output layer is fully connected to
-the hidden layer. The output layer is finally reshape to corresponds to the
-input layer. For both hidden and output layer, a sigmoid is considered as
-activation function.
+The topology of the network starts with a convolutional layer activated by a
+_relu_ function. Following the convolution, a hidden dense layer is added with
+a sigmoid activation function. The output layer is connected the the previous
+hidden layer and is reshaped to correspond to the input layer in term of size.
+The output layer is also activated by a sigmoid function.
 
 The cost function of the network is a simple L2 norm between the input and output
 layers. The theoretical minimum of the cost function is then the identity between
@@ -32,8 +30,6 @@ The two next mode allows to encode and decode specific image of the data-set aga
 using index range. The encoding produce a file in which the state of the hidden
 layer is dumped, in text mode. The decoding mode allows to provides to the hidden
 layer specific content to study the obtained output layer.
-
-
 
 ## Copyright and License
 

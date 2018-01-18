@@ -55,9 +55,11 @@ ml_args = ml_apar.parse_args()
 # network hyper-parameter #
 ml_h_input   = ml_args.width ** 2
 ml_h_width   = ml_args.width
-ml_h_pool    = int( ml_args.width / 2 ) ** 2
 ml_h_hidden1 = ml_args.layer1
 ml_h_hidden2 = ml_args.layer2
+
+# network hyper-parameter #
+ml_h_flat = ml_h_width * ml_h_width * ml_h_hidden1
 
 ##
 ##   script - network parameter
@@ -65,7 +67,7 @@ ml_h_hidden2 = ml_args.layer2
 
 # network parameter : weights #
 ml_p_w1 = tf.Variable( tf.random_normal( [ 5, 5, 1, ml_h_hidden1 ], stddev=0.05 ) )
-ml_p_w2 = tf.Variable( tf.random_normal( [ ml_h_pool * ml_h_hidden1, ml_h_hidden2 ], stddev=0.05 ) )
+ml_p_w2 = tf.Variable( tf.random_normal( [ ml_h_flat, ml_h_hidden2 ], stddev=0.05 ) )
 ml_p_w3 = tf.Variable( tf.random_normal( [ ml_h_hidden2, ml_h_input ], stddev=0.05 ) )
 
 # network parameter : biases #
@@ -83,16 +85,13 @@ ml_g_input = tf.placeholder( tf.float32, [ None, ml_h_width, ml_h_width, 1 ] )
 # network topology : convolution #
 ml_g_conv = tf.nn.relu( tf.nn.conv2d( ml_g_input, ml_p_w1, strides=[1, 1, 1, 1], padding="SAME" ) + ml_p_b1 )
 
-# network topology : max-pool #
-ml_g_pool = tf.nn.max_pool( ml_g_conv, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME' )
-
-# network topology : flattening #
-ml_g_pool_flat = tf.reshape( ml_g_pool, [ -1, ml_h_pool * ml_h_hidden1 ] )
+# network topology : flat convolution #
+ml_g_conv_flat = tf.reshape( ml_g_conv, [ -1, ml_h_flat ] )
 
 # network topology : hidden layer #
-ml_g_hidden = tf.nn.sigmoid( tf.add( tf.matmul( ml_g_pool_flat, ml_p_w2 ), ml_p_b2 ) )
+ml_g_hidden = tf.nn.sigmoid( tf.add( tf.matmul( ml_g_conv_flat, ml_p_w2 ), ml_p_b2 ) )
 
-# network topology : output layer #
+# network topology : flat output layer #
 ml_g_output_flat = tf.nn.sigmoid( tf.add( tf.matmul( ml_g_hidden, ml_p_w3 ), ml_p_b3 ) )
 
 # network topology : output layer #
@@ -108,19 +107,16 @@ ml_s1_input = tf.placeholder( tf.float32, [ None, ml_h_width, ml_h_width, 1 ] )
 # network topology : convolution #
 ml_s1_conv = tf.nn.relu( tf.nn.conv2d( ml_s1_input, ml_p_w1, strides=[1, 1, 1, 1], padding="SAME" ) + ml_p_b1 )
 
-# network topology : max-pool #
-ml_s1_pool = tf.nn.max_pool( ml_s1_conv, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME' )
-
-# network topology : flattening #
-ml_s1_pool_flat = tf.reshape( ml_s1_pool, [ -1, ml_h_pool * ml_h_hidden1 ] )
+# network topology : flat convolution #
+ml_s1_conv_flat = tf.reshape( ml_s1_conv, [ -1, ml_h_flat ] )
 
 # network topology : output layer #
-ml_s1_output = tf.nn.sigmoid( tf.add( tf.matmul( ml_s1_pool_flat, ml_p_w2 ), ml_p_b2 ) )
+ml_s1_output = tf.nn.sigmoid( tf.add( tf.matmul( ml_s1_conv_flat, ml_p_w2 ), ml_p_b2 ) )
 
 # network topology : input layer #
 ml_s2_input = tf.placeholder( tf.float32, [ None, ml_h_hidden2 ] )
 
-# network topology : output layer #
+# network topology : flat output layer #
 ml_s2_output_flat = tf.nn.sigmoid( tf.add( tf.matmul( ml_s2_input, ml_p_w3 ), ml_p_b3 ) )
 
 # network topology : output layer #
