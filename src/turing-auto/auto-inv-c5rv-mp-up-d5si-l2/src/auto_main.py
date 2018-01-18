@@ -78,14 +78,8 @@ ml_g_input = tf.placeholder( tf.float32, [ None, ml_h_width, ml_h_width, 1 ] )
 # network topology : convolution #
 ml_g_conv = tf.nn.relu( tf.nn.conv2d( ml_g_input, ml_p_w1, strides=[1, 1, 1, 1], padding="SAME" ) + ml_p_b1 )
 
-# network topology : max-pool #
-ml_g_pool = tf.nn.max_pool( ml_g_conv, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME' )
-
-# network topology : unpool #
-ml_g_loop = tf.image.resize_nearest_neighbor( ml_g_pool, size=[ ml_h_width, ml_h_width ] )
-
 # network topology : output layer #
-ml_g_output = tf.nn.sigmoid( tf.nn.conv2d( ml_g_loop, ml_p_w2, strides=[1, 1, 1, 1], padding="SAME" ) + ml_p_b2 )
+ml_g_output = tf.nn.sigmoid( tf.nn.conv2d( ml_g_conv, ml_p_w2, strides=[1, 1, 1, 1], padding="SAME" ) + ml_p_b2 )
 
 ##
 ##   script - network sub-topology
@@ -97,23 +91,17 @@ ml_s1_input = tf.placeholder( tf.float32, [ None, ml_h_width, ml_h_width, 1 ] )
 # network topology : convolution #
 ml_s1_conv = tf.nn.relu( tf.nn.conv2d( ml_s1_input, ml_p_w1, strides=[1, 1, 1, 1], padding="SAME" ) + ml_p_b1 )
 
-# network topology : max-pool #
-ml_s1_pool = tf.nn.max_pool( ml_s1_conv, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME' )
-
 # network topology : output layer #
-ml_s1_output = tf.reshape( ml_s1_pool, [ -1, int( ml_h_width / 2 ) * int( ml_h_width / 2 ) * ml_h_hidden ] )
+ml_s1_output = tf.reshape( ml_s1_conv, [ -1, ml_h_width * ml_h_width * ml_h_hidden ] )
 
 # network topology : input layer #
-ml_s2_input = tf.placeholder( tf.float32, [ None, int( ml_h_width / 2 ) * int( ml_h_width / 2 ) * ml_h_hidden ] )
-
-# network topology : adaptation #
-ml_s2_pool = tf.reshape( ml_s2_input, [ -1, int( ml_h_width / 2 ), int( ml_h_width / 2 ), ml_h_hidden ] )
+ml_s2_input = tf.placeholder( tf.float32, [ None, ml_h_width * ml_h_width * ml_h_hidden ] )
 
 # network topology : unpool #
-ml_s2_loop = tf.image.resize_nearest_neighbor( ml_s2_pool, size=[ ml_h_width, ml_h_width ] )
+ml_s2_conv = tf.reshape( ml_s2_input, [ -1, ml_h_width, ml_h_width, ml_h_hidden ] )
 
 # network topology : output layer #
-ml_s2_output = tf.nn.sigmoid( tf.nn.conv2d( ml_s2_loop, ml_p_w2, strides=[1, 1, 1, 1], padding="SAME" ) + ml_p_b2 )
+ml_s2_output = tf.nn.sigmoid( tf.nn.conv2d( ml_s2_conv, ml_p_w2, strides=[1, 1, 1, 1], padding="SAME" ) + ml_p_b2 )
 
 ##
 ##   script - network objective function
@@ -273,7 +261,7 @@ elif ( ml_args.mode == 'decode' ):
     ml_data = td.ml_data_vector_load( ml_args.input )
 
     # check consistency #
-    if ( ml_data.shape[1] != ( int( ml_h_width / 2 ) * int( ml_h_width / 2 ) * ml_h_hidden ) ):
+    if ( ml_data.shape[1] != ( ml_h_width * ml_h_width * ml_h_hidden ) ):
 
         # send message #
         sys.exit( 'turing : error : inconsistent vector' )
