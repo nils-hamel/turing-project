@@ -106,6 +106,10 @@ The _turing-project_ comes with the following package dependencies (Ubuntu 16.04
 * bc
 * imagemagick
 
+and the following external dependencies :
+
+* eratosthene-suite (v0.3.4)
+
 and with the following python3 modules :
 
 * numpy
