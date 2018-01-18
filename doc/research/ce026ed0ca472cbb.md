@@ -1,7 +1,7 @@
 ## inv-hsv-hsv-hsv-osi-l2 training and validation
 
 This study focuses on the analysis of the training and validation performances of the
-[inv-hsv-hsv-hsv-osi-l2](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-hsv-hsv-hsv-osi-l2)
+[inv-hsv-hsv-hsv-osi-l2](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-hsv-hsv-hsv-osi-l2)
 auto-encoder according to the considered data-set and the size of its hidden layers.
 
 For each considered data-set, the external layers and central layer are modulated
