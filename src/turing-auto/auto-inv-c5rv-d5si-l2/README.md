@@ -1,15 +1,13 @@
-## Auto-Encoder : inv-c5rv-mp-up-d5si-l2
+## Auto-Encoder : inv-c5rv-d5si-l2
 
 This directory contains the implementation of a simple convolutional auto-encoder
 for image raster. It is trained using raster images data-sets in
 greyscale format.
 
 The topology of the network consist in the first place in a convolutional layer
-followed by a max-pool layer. The activation function of the convolutional layer
-is a _relu_ function. Following the max-pool layer, an upscale operation is set
-to retrieve the raster original resolution. A deconvolution layer is finally
-used to reduce the convolution depth to one. In addition, the activation function
-of the deconvolution layer is a sigmoid function.
+activated by a _relu_ function. Directly after this first layer, a second
+convolutional layer is set to rebuild the original raster with a sigmoid as
+activation layer.
 
 The cost function of the network is a simple L2 norm between the input and output
 layers. The theoretical minimum of the cost function is then the identity between

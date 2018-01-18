@@ -50,7 +50,7 @@ Single-layer auto-encoders :
 
 Single-convolution auto-encoders :
 
-* [inv-c5rv-mp-up-d5si-l2 : 1-convolution relu-sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-c5rv-mp-up-d5si-l2)
+* [inv-c5rv-d5si-l2 : 1-convolution relu-sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-inv-c5rv-d5si-l2)
 
 Asymmetrical single-convolution and single-layer auto-encoders :
 
@@ -83,9 +83,9 @@ Research on single-layer auto-encoders :
 * [icv-hrv-oti-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/72d52f8ddd4b6619.md)
 * [inv-hsv-osi-ce training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/f343816a10b17cc9.md)
 
-Research on single-convolution auto-encoders :
+<> Research on single-convolution auto-encoders :
 
-* [inv-c5rv-mp-up-d5si-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/5c6f602bcd5ba11e.md)
+<> * [inv-c5rv-mp-up-d5si-l2 training and validation](https://github.com/nils-hamel/turing-project/blob/master/doc/research/5c6f602bcd5ba11e.md)
 
 Research on three-layer auto-encoders :
 
