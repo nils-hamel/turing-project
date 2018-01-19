@@ -82,19 +82,11 @@ def ml_raster_export( ml_data, ml_path ):
 # enumerate file in dataset directory #
 for ml_file in os.listdir( ml_args.raster ):
 
-    # check file extension #
-    if ( ml_file.endswith( ".ras" ) ):
+    # display information #
+    print( 'turing : compacting ' + ml_file + ' ...' )
 
-        # display information #
-        print( 'turing : compacting ' + ml_file + ' ...' )
-
-        # import and export raster in dataset #
-        ml_raster_export( ml_raster_import( ml_args.raster + '/' + ml_file ), ml_args.dataset )
-
-    else:
-
-        # display information #
-        print( 'turing : reject ' + ml_file )
+    # import and export raster in dataset #
+    ml_raster_export( ml_raster_import( ml_args.raster + '/' + ml_file ), ml_args.dataset )
 
 # display information #
 print( 'turing : done' )
