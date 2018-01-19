@@ -22,26 +22,29 @@
 ##  script - script variables
 ##
 
-# index query time (unix timestamp) #
+# query index time #
 ML_TIME=
 
-# index query space (eratosthene index) #
-ML_BASE=
+# query index space #
+ML_SPACE=
 
-# index query span #
+# query index span #
 ML_SPAN=
 
-# index enumeration depth #
-ML_ENUM=${4}
+# index space enumeration depth #
+ML_DEPTH=
 
-# server ip address #
+# remote server ip address #
 ML_SRIP=
 
-# server service #
+# remote server port number #
 ML_SRPT=
 
 # exportation path #
 ML_EXPORT=
+
+# exportation limit #
+ML_LIMIT=0
 
 ##
 ##  script - arguments and parameters
@@ -63,7 +66,7 @@ function ml_args() {
             shift;;
 
             --address|-a)
-                ML_BASE=${1//,/ }
+                ML_SPACE=${1//,/ }
             shift;;
 
             --span|-s)
@@ -71,7 +74,7 @@ function ml_args() {
             shift;;
 
             --depth|-d)
-                ML_ENUM=${1}
+                ML_DEPTH=${1}
             shift;;
 
             --ip|-i)
@@ -82,8 +85,12 @@ function ml_args() {
                 ML_SRPT=${1}
             shift;;
 
-            --export|-x)
+            --export|-e)
                 ML_EXPORT=${1}
+            shift;;
+
+            --limit|-l)
+                ML_LIMIT=${1}
             shift;;
 
         esac
@@ -99,61 +106,11 @@ function ml_args() {
 # arguments and parameters #
 ml_args ${@}
 
-# compute enumeration boundary #
-ml_limit=$(( 8 ** ${ML_ENUM} - 1 ))
-
 # parsing index spatial components #
-for ml_enum_a in ${ML_BASE}; do
+for ml_space in ${ML_SPACE}; do
 
-    # parsing enumeration spatial index #
-    for ml_enum_i in $(seq 0 ${ml_limit}); do
-
-        # push enumeration number #
-        ml_enum_p=${ml_enum_i}
-
-        # reset digit template #
-        ml_digit=""
-
-        # compute additional digits #
-        for (( ml_i=0; ml_i<${ML_ENUM}; ml_i=ml_i+1 )); do
-
-            # compute digit template #
-            ml_digit="$(( ${ml_enum_p} % 8 ))${ml_digit}"
-
-            # update enumeration number #
-            ml_enum_p=$(( ${ml_enum_p} / 8 ))
-
-        done
-
-        # compose raster name #
-        ml_name=1-${ML_TIME}-0-${ml_enum_a}${ml_digit}-${ML_SPAN}.ras
-
-        # compose query address #
-        ml_addr=/1/${ML_TIME},0/${ml_enum_a}${ml_digit}/${ML_SPAN}
-
-        # perform query on remote server #
-        ml_count=$(eratosthene-raster -i ${ML_SRIP} -t ${ML_SRPT} -q ${ml_addr} -r /run/shm/raster-query.ras)
-
-        # check raster point count #
-        if (( ${ml_count} > 2048 )); then
-
-            # display information #
-            echo "revieving ${ml_name} from server with ${ml_count} ..."
-
-            # move recieved raster #
-            mv /run/shm/raster-query.ras ${ML_EXPORT}/${ml_name}
-
-        else
-
-            # display information #
-            echo "discaring ${ml_name} from server with ${ml_count} ..."
-
-        fi
-
-    done
+    # enumerate index #
+    eratosthene-raster -i ${ML_SRIP} -p ${ML_SRPT} -q /1/${ML_TIME},0/${ml_space}/${ML_SPAN} -d ${ML_DEPTH} -l ${ML_LIMIT} -e ${ML_EXPORT}
 
 done
-
-# remove temporary raster #
-rm -f /run/shm/raster-query.ras
 
