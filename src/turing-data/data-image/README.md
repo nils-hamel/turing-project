@@ -8,7 +8,7 @@ matrix.
 ## Script Overview
 
 Several script are implemented to help creation and extraction of data-sets
-composed of image rasters. The following sub-section offer a brief overview of
+composed of image rasters. The following sub-sections offer a brief overview of
 each script.
 
 ### Script : image-photo
