@@ -33,9 +33,10 @@ Different image data-sets are considered in the conducted research to also analy
 
 ### Data-Sets : Index Rasters
 
-In addition to image data-set, index rasters are also considered. Index raster are 3D volumetric data of the form of voxel grids (volumetric textures). These data-sets are used to determine in which extend 3D data can also be learned by neural networks. Each of the following page give a presentation of a data-set :
+In addition to image data-set, index rasters are also considered. Index raster are 3D volumetric data of the form of voxel grids. These data-sets are used to determine in which extend 3D data can also be learned by neural networks. Each of the following page give a presentation of a data-set :
 
 * [64x64x64-geneva-2009](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x64-geneva-2009.md)
+* [64x64x64-europe-2000](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x64-europe-2000.md)
 
 ## Turing Project : Neural Networks
 
