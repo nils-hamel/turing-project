@@ -111,7 +111,7 @@ elif ( ml_args.mode == 'sample' ):
         print( 'turing : export raster ' + str( ml_index ) + ' ...' )
 
         # export raster #
-        ml_raster_export( ml_data[ml_parse], ml_args.raster + '/raster-{:06d}.ras'.format( ml_index ) )
+        ml_raster_export( ml_data[ml_index], ml_args.raster + '/raster-{:06d}.ras'.format( ml_index ) )
 
     # display information #
     print( 'turing : done' )
