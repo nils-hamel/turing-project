@@ -31,6 +31,12 @@ Different image data-sets are considered in the conducted research to also analy
 * [64x64x3-venezia-san-giacometto-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-giacometto-2016.md)
 * [64x64x3-venezia-san-marco-2016](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x3-venezia-san-marco-2016.md)
 
+### Data-Sets : Index Rasters
+
+In addition to image data-set, index rasters are also considered. Index raster are 3D volumetric data of the form of voxel grids (volumetric textures). These data-sets are used to determine in which extend 3D data can also be learned by neural networks. Each of the following page give a presentation of a data-set :
+
+* [64x64x64-geneva-2009](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x64-geneva-2009.md)
+
 ## Turing Project : Neural Networks
 
 Different type of neural networks are analysed in this approach of deep learning applied to geodesy and geography. The first type of neural networks are the auto-encoder used to determine the ability of neural networks to reduce and generalise sets of data.
