@@ -129,7 +129,7 @@ ml_figure = plt.figure()
 ml_plot = ml_figure.add_subplot( 111, projection='3d' )
 
 # create scatter plot #
-ml_plot.scatter(ml_data[:,2], ml_data[:,1], ml_data[:,0], c=ml_data[:,0], s=8, marker='o', edgecolor='none', cmap='inferno', vmin=0.0, vmax=1.0 )
+ml_plot.scatter(ml_data[:,2], ml_data[:,1], ml_data[:,0], c=ml_data[:,0], s=8, marker='o', edgecolor='none', cmap='inferno', vmin=0.0, vmax=1.25 )
 
 # setting axis labels #
 ml_plot.set_xlabel( 'lon' )
