@@ -64,6 +64,10 @@ Asymmetrical single-convolution and single-layer auto-encoders :
 
 * [inv-c5rv-hsv-osi-l2 : 1-convolution/1-layer relu-sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-c5rv-hsv-osi-l2)
 
+Double-layer auto-encoders :
+
+* [inv-hsv-osi-l2-hsv-osi-l2 : 2-layer sigmoid-l2 dual-loss auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-hsv-osi-l2-hsv-osi-l2)
+
 Three-layer auto-encoders :
 
 * [inv-hsv-hsv-hsv-osi-l2 : 3-layer sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-hsv-hsv-hsv-osi-l2)
