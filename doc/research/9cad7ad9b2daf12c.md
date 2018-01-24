@@ -45,7 +45,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-geneva-2009-train.jpg?raw=true" width="600">
@@ -90,7 +90,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-geneva-2011-train.jpg?raw=true" width="600">
@@ -135,7 +135,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-geneva-2016-train.jpg?raw=true" width="600">
@@ -180,7 +180,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-geneva-oblique-2013-train.jpg?raw=true" width="600">
@@ -225,7 +225,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-paris-louvre-2017-train.jpg?raw=true" width="600">
@@ -270,7 +270,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-2004-train.jpg?raw=true" width="600">
@@ -315,7 +315,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-2010-train.jpg?raw=true" width="600">
@@ -360,7 +360,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-2014-train.jpg?raw=true" width="600">
@@ -405,7 +405,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-campanile-2016-train.jpg?raw=true" width="600">
@@ -450,7 +450,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-palazzo-ducale-2016-train.jpg?raw=true" width="600">
@@ -495,7 +495,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-piazza-2016-train.jpg?raw=true" width="600">
@@ -540,7 +540,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-san-giacometto-2016-train.jpg?raw=true" width="600">
@@ -585,7 +585,7 @@ set are auto-encoded. In each group of 24 images, each example is presented
 using the original image and its auto-encoded counterpart on the right.
 The successive images groups are related to the sizes of the network
 hidden layers. The order of the groups is the same as on the previous plot
-starting with (64, 64), (128, 64), (128, 128), (256, 64) until (1024, 1024).
+starting with (512, 512), (512, 1024) until (2048, 2048).
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-san-marco-2016-train.jpg?raw=true" width="600">
