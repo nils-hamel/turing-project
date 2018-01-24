@@ -30,8 +30,8 @@ size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-geneva-2009-loss.jpg?raw=true" width="640">
@@ -75,8 +75,8 @@ size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-geneva-2011-loss.jpg?raw=true" width="640">
@@ -120,8 +120,8 @@ size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-geneva-2016-loss.jpg?raw=true" width="640">
@@ -165,8 +165,8 @@ size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-geneva-oblique-2013-loss.jpg?raw=true" width="640">
@@ -210,8 +210,8 @@ size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-paris-louvre-2017-loss.jpg?raw=true" width="640">
@@ -255,8 +255,8 @@ size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-2004-loss.jpg?raw=true" width="640">
@@ -299,9 +299,8 @@ This sub-section presents the training results of the network on the
 size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
-losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-2010-loss.jpg?raw=true" width="640">
@@ -345,8 +344,8 @@ size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-2014-loss.jpg?raw=true" width="640">
@@ -390,8 +389,8 @@ size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-campanile-2016-loss.jpg?raw=true" width="640">
@@ -435,8 +434,8 @@ size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-palazzo-ducale-2016-loss.jpg?raw=true" width="640">
@@ -480,8 +479,8 @@ size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-piazza-2016-loss.jpg?raw=true" width="640">
@@ -525,8 +524,8 @@ size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-san-giacometto-2016-loss.jpg?raw=true" width="640">
@@ -570,8 +569,8 @@ size of its hidden layers. The following plot shows
 the evolution of the training and validation losses according to
 the training epochs and hidden layers sizes. The red curves give the evolution of the training
 losses while the orange ones show the evolution of the validation losses.
-The title of each sub-plot gives the amount of neurons that are used in the
-external layers and the central one, respectively.
+The title of each sub-plot gives the size of the super-scaler and auto-encoder
+hidden layers, respectively.
 
 <p align="center">
 <img src="https://github.com/nils-hamel/turing-project/blob/master/doc/research/9cad7ad9b2daf12c/64x64x3-venezia-san-marco-2016-loss.jpg?raw=true" width="640">
