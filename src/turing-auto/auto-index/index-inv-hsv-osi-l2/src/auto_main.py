@@ -143,7 +143,7 @@ if ( ( ml_args.mode == 'train' ) or ( ml_args.mode == 'retrain' ) ):
     ml_data = td.ml_data_format_float( ml_data )
 
     # training and validation loss data #
-    ml_data, ml_train, ml_valid = td.ml_data_split( ml_data, 0.4, ml_args.batch )
+    ml_data, ml_train, ml_valid = td.ml_data_split( ml_data, 0.8, ml_args.batch )
 
     # minibatch count #
     ml_count = td.ml_data_batch_count( ml_data, ml_args.batch )
@@ -217,6 +217,9 @@ elif ( ml_args.mode == 'auto' ):
     # compute auto-encoded #
     ml_auto = ml_session.run( ml_g_output, feed_dict={ ml_g_input : ml_data } )
 
+    # convert auto-encoded #
+    ml_auto = td.ml_data_format_uint8( ml_auto )
+
     # parsing data range #
     for ml_export in range( ml_data.shape[0] ):
 
@@ -271,8 +274,8 @@ elif ( ml_args.mode == 'decode' ):
     # compute deprojection - decode #
     ml_decode = ml_session.run( ml_s2_output, feed_dict={ ml_s2_input : ml_data } )
 
-    # reshape range #
-    ml_decode = ml_decode.reshape( -1, ml_args.width, ml_args.width )
+    # convert decoded #
+    ml_decode = td.ml_data_format_uint8( ml_decode )
 
     # parsing range #
     for ml_export in range( ml_data.shape[0] ):
