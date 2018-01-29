@@ -47,7 +47,7 @@ Different type of neural networks are analysed in this approach of deep learning
 
 Auto-encoders are used to determine in which extend neural networks are able to learn and generalise specific data-sets in the domain of geodesy and geography. The goal of the study of auto-encoders is to verify their ability to understand the grammar of specific places and environments mainly from the point of view of interpretation and completion.
 
-Single-layer auto-encoders :
+Single-layer auto-encoders for image raster :
 
 * [inv-hsv-osi-l2 : 1-layer sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-hsv-osi-l2)
 * [icv-hhv-ohi-l2 : 1-layer asinh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-icv-hhv-ohi-l2)
@@ -55,6 +55,8 @@ Single-layer auto-encoders :
 * [icv-hrv-ohi-l2 : 1-layer relu/asinh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-icv-hrv-ohi-l2)
 * [icv-hrv-oti-l2 : 1-layer relu/tanh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-icv-hrv-oti-l2)
 * [inv-hsv-osi-ce : 1-layer sigmoid-ce auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-hsv-osi-ce)
+
+Single-layer auto-encoders for index raster :
 
 * [inv-hsv-osi-l2 : 1-layer sigmoid-l2 auto-encoder for index raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-index/index-inv-hsv-osi-l2)
 
