@@ -36,8 +36,11 @@ Different image data-sets are considered in the conducted research to also analy
 In addition to image data-set, index rasters are also considered. Index raster are 3D volumetric data of the form of voxel grids. These data-sets are used to determine in which extend 3D data can also be learned by neural networks. Each of the following page give a presentation of a data-set :
 
 * [64x64x64-geneva-2005](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x64-geneva-2005.md)
+* [32x32x32-geneva-2005](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/32x32x32-geneva-2005.md)
 * [64x64x64-geneva-2009](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x64-geneva-2009.md)
+* [32x32x32-geneva-2009](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/32x32x32-geneva-2009.md)
 * [64x64x64-europe-2000](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/64x64x64-europe-2000.md)
+* [32x32x32-europe-2000](https://github.com/nils-hamel/turing-project/blob/master/doc/dataset/32x32x32-europe-2000.md)
 
 ## Turing Project : Neural Networks
 
@@ -60,19 +63,19 @@ Single-layer auto-encoders for index raster :
 
 * [inv-hsv-osi-l2 : 1-layer sigmoid-l2 auto-encoder for index raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-index/index-inv-hsv-osi-l2)
 
-Single-convolution auto-encoders :
+Single-convolution auto-encoders for image raster :
 
 * [inv-c5rv-d5si-l2 : 1-convolution relu-sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-c5rv-d5si-l2)
 
-Asymmetrical single-convolution and single-layer auto-encoders :
+Asymmetrical single-convolution and single-layer auto-encoders for image raster :
 
 * [inv-c5rv-hsv-osi-l2 : 1-convolution/1-layer relu-sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-c5rv-hsv-osi-l2)
 
-Double-layer auto-encoders :
+Double-layer auto-encoders for image raster :
 
 * [inv-hsv-osi-l2-hsv-osi-l2 : 2-layer sigmoid-l2 dual-loss auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-hsv-osi-l2-hsv-osi-l2)
 
-Three-layer auto-encoders :
+Three-layer auto-encoders for image raster :
 
 * [inv-hsv-hsv-hsv-osi-l2 : 3-layer sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-hsv-hsv-hsv-osi-l2)
 * [icv-hhv-hhv-hhv-ohi-l2 : 3-layer asinh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-icv-hhv-hhv-hhv-ohi-l2)
