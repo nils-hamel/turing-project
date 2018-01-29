@@ -33,6 +33,17 @@ of all elements contained in the specified data-set file and the _sample_ mode
 that makes a random selection of _N_ element of the data-set, _N_ having to be
 specified in this case.
 
+### Script : index-subsample
+
+This script allows to down-sample index data-sets by a factor of two. This
+operation is equivalent to the computation of the data-set through remote
+_eratosthene_ server using a depth decreased by one. This comes from properties
+of the indexation formalism implemented in such servers.
+
+The provided input data-set is read and each raster it contains is re-sampled
+on a grid twice smaller than the original. The sub-sampled raster are then
+exported in the specified output data-set
+
 ### Script : index-query
 
 This script is used to compose collection of 3D raster. It requires the availability
