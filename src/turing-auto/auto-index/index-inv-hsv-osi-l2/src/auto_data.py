@@ -42,7 +42,7 @@ def ml_data_import( ml_path, ml_width ):
         ml_byte = ml_file.read( os.path.getsize( ml_path ) )
 
     # convert bytes to numpy array #
-    ml_data = numpy.frombuffer( ml_byte, dtype=numpy.float32 )
+    ml_data = numpy.frombuffer( ml_byte, dtype=numpy.uint8 )
 
     # return dataset #
     return ml_data.reshape( -1, ml_width, ml_width, ml_width )
@@ -50,6 +50,19 @@ def ml_data_import( ml_path, ml_width ):
 ##
 ##  script - dataset format
 ##
+
+def ml_data_format_float( ml_data ):
+
+    # convert dataset values type #
+    return ml_data.astype( numpy.float32 )
+
+def ml_data_format_uint8( ml_data ):
+
+    # round dataset values #
+    ml_data = numpy.around( ml_data )
+
+    # convert dataset values type #
+    return ml_data.astype( numpy.uint8 )
 
 def ml_data_format_central( ml_data ):
 
@@ -134,7 +147,7 @@ def ml_data_batch_count( ml_data, ml_batch_size ):
 def ml_data_batch( ml_data, ml_batch_size, ml_batch ):
 
     # check consistency #
-    if ( ml_index > ml_data_batch_count( ml_data, ml_batch_size ) ):
+    if ( ml_batch > ml_data_batch_count( ml_data, ml_batch_size ) ):
 
         # send message #
         sys.exit( 'turing : error : batch out of range' )
@@ -158,7 +171,7 @@ def ml_data_raster_save( ml_raster, ml_path ):
     with open( ml_path, 'wb' ) as ml_file:
 
         # export raster #
-        numpy.array( ml_data, dtype=numpy.uint8 ).tofile( ml_file )
+        numpy.array( ml_raster, dtype=numpy.uint8 ).tofile( ml_file )
 
 ##
 ##  script - vector manipulation
