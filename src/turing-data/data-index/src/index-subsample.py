@@ -32,11 +32,9 @@ import random
 ml_apar = argparse.ArgumentParser()
 
 # argument directive #
-ml_apar.add_argument( '-m', '--mode'   , type=str, help='script mode'  )
-ml_apar.add_argument( '-d', '--dataset', type=str, help='dataset path' )
-ml_apar.add_argument( '-w', '--width'  , type=int, help='raster width' )
-ml_apar.add_argument( '-r', '--raster' , type=str, help='raster path'  )
-ml_apar.add_argument( '-c', '--count'  , type=int, help='raster count' )
+ml_apar.add_argument( '-i', '--input' , type=str, help='input dataset'  )
+ml_apar.add_argument( '-w', '--width' , type=int, help='raster width'   )
+ml_apar.add_argument( '-o', '--output', type=str, help='output dataset' )
 
 # read argument and parameter #
 ml_args = ml_apar.parse_args()
@@ -52,6 +50,33 @@ def ml_raster_export( ml_data, ml_path ):
 
         # export raster array #
         numpy.array( ml_data, dtype=numpy.uint8 ).tofile( ml_file )
+
+##
+##  script - raster down-sampling
+##
+
+def ml_raster_downsample( ml_raster ):
+
+    # create downsampled raster #
+    ml_down = numpy.zeros( [ int( ml_raster.shape[0] / 2 ), int( ml_raster.shape[1] / 2 ), int( ml_raster.shape[2] / 2 ) ], dtype=numpy.uint8 )
+
+    # parsing dimension #
+    for ml_x in range( ml_raster.shape[0] ):
+
+        # parsing dimension #
+        for ml_y in range( ml_raster.shape[1] ):
+
+            # parsing dimension #
+            for ml_z in range( ml_raster.shape[2] ):
+
+                # check element value #
+                if ( ml_raster[ml_x, ml_y, ml_z] == 1 ):
+
+                    # assign down-sampled element #
+                    ml_down[int(ml_x/2),int(ml_y/2),int(ml_z/2)] = 1
+
+    # return down-sampled raster #
+    return ml_down
 
 ##
 ##  script - dataset importation
@@ -82,37 +107,20 @@ def ml_raster_import( ml_path, ml_width ):
 ##
 
 # import dataset #
-ml_data = ml_raster_import( ml_args.dataset, ml_args.width )
+ml_data = ml_raster_import( ml_args.input, ml_args.width )
 
-# check script mode #
-if ( ml_args.mode == 'full' ):
-
-    # parsing dataset #
-    for ml_parse in range( ml_data.shape[0] ):
-
-        # display information #
-        print( 'turing : export raster ' + str( ml_parse ) + ' ...' )
-
-        # export raster #
-        ml_raster_export( ml_data[ml_parse], ml_args.raster + '/raster-{:06d}.ras'.format( ml_parse ) )
+# parsing dataset #
+for ml_parse in range( ml_data.shape[0] ):
 
     # display information #
-    print( 'turing : done' )
+    print( 'turing : down-sample raster ' + str( ml_parse ) + ' ...' )
 
-elif ( ml_args.mode == 'sample' ):
+    # down-sample raster #
+    ml_down = ml_raster_downsample( ml_data[ml_parse] )
 
-    # parsing dataset #
-    for ml_parse in range( ml_args.count ):
+    # export down-sampled raster #
+    ml_raster_export( ml_down, ml_args.output )
 
-        # create random index #
-        ml_index = random.randint( 0, ml_data.shape[0] - 1 )
-
-        # display information #
-        print( 'turing : export raster ' + str( ml_index ) + ' ...' )
-
-        # export raster #
-        ml_raster_export( ml_data[ml_index], ml_args.raster + '/raster-{:06d}.ras'.format( ml_index ) )
-
-    # display information #
-    print( 'turing : done' )
+# display information #
+print( 'turing : done' )
 
