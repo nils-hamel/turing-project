@@ -11,7 +11,7 @@ Several script are implemented to help creation and extraction of data-sets
 composed of image rasters. The following sub-sections offer a brief overview of
 each script.
 
-### Script : image-photo
+### image-photo
 
 This bash script is used to extract sub-image of a given resolution from a set
 of photography. This allows to randomly crop sub-region of the photography of
@@ -22,7 +22,7 @@ The script allows to specify the size of the data-set image raster and to
 modulate the number of sub-image extraction by specifying the scale and the
 amount of crop to perform on each scale.
 
-### Script : image-compact
+### image-compact
 
 This script, implemented in python, allows to read an image collection from a
 directory to compact them into a single data-set file. This type of file is
@@ -32,7 +32,7 @@ The script expects and image collection containing colorimetric images having
 the same resolution. The script also ensure that the color component are packed
 in 24 bits (uint8).
 
-### Script : image-extract
+### image-extract
 
 This script, implemented in python, allows to extract the content of a data-set
 file in a specified directory. For each extracted element of the data-set, the

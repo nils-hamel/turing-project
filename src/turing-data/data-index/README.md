@@ -10,19 +10,19 @@ The following script are used to compose data-set, extract elements from data-se
 remote server query tool and 3D raster content display. The following sub-sections
 offer a brief overview of each script.
 
-### Script : index-show
+### index-show
 
 This script is used to display the content of a specified 3D raster. The raster
 is converted by the script in a set of point that is displayed in a 3D frame.
 The script allows both to view and export the produced figure.
 
-### Script : index-compact
+### index-compact
 
 This script is used to compose data-set from a collection of 3D rasters. The
 script allows to reads the 3D raster collection to produce a single data-set
 file containing all the elements of the collection.
 
-### Script : index-extract
+### index-extract
 
 This script allows to extract all or samples of the elements contained in a
 specified data-set. The script reads the elements from the data-set file and
@@ -33,7 +33,7 @@ of all elements contained in the specified data-set file and the _sample_ mode
 that makes a random selection of _N_ element of the data-set, _N_ having to be
 specified in this case.
 
-### Script : index-subsample
+### index-subsample
 
 This script allows to down-sample index data-sets by a factor of two. This
 operation is equivalent to the computation of the data-set through remote
@@ -44,7 +44,7 @@ The provided input data-set is read and each raster it contains is re-sampled
 on a grid twice smaller than the original. The sub-sampled raster are then
 exported in the specified output data-set
 
-### Script : index-query
+### index-query
 
 This script is used to compose collection of 3D raster. It requires the availability
 of a remote _eratosthene_ server in order to operate.

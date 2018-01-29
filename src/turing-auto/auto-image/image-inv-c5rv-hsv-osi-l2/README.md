@@ -1,4 +1,4 @@
-## Auto-Encoder : inv-c5rv-hsv-osi-l2
+## Auto-Encoder - Image - inv-c5rv-hsv-osi-l2
 
 This directory constains the implementation of a asymmetrical auto-encoder for
 image rasters. It is trained using raster images data-sets in greyscale format.
@@ -24,12 +24,12 @@ image are initially converted into greyscale image before to be normalised on th
 format.
 
 The network implementation script provides different modes. The first mode
-correspond to the network training and retraining process. The second mode
-allows to auto-encode image of the data-set by specified the image index range.
-The two next mode allows to encode and decode specific image of the data-set again
-using index range. The encoding produce a file in which the state of the hidden
-layer is dumped, in text mode. The decoding mode allows to provides to the hidden
-layer specific content to study the obtained output layer.
+corresponds to the network training and retraining process. The second mode
+allows to auto-encode images of the data-set by specifying the range of the
+images to consider. The next mode allows to encode a specified range of images
+of the data-set in the auto-encoder latent space. The output of this mode is
+then a set of vectors. The last mode allows to read a set of vectors interpreted
+as the auto-encoder latent values to produce to corresponding images.
 
 ## Copyright and License
 

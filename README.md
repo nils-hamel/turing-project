@@ -56,6 +56,8 @@ Single-layer auto-encoders :
 * [icv-hrv-oti-l2 : 1-layer relu/tanh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-icv-hrv-oti-l2)
 * [inv-hsv-osi-ce : 1-layer sigmoid-ce auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-hsv-osi-ce)
 
+* [inv-hsv-osi-l2 : 1-layer sigmoid-l2 auto-encoder for index raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-index/index-inv-hsv-osi-l2)
+
 Single-convolution auto-encoders :
 
 * [inv-c5rv-d5si-l2 : 1-convolution relu-sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-c5rv-d5si-l2)
