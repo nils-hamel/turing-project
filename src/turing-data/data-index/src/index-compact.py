@@ -22,6 +22,7 @@ import argparse
 import numpy
 import os
 import sys
+import string
 
 ##
 ##  script - argument and parameter
@@ -33,6 +34,7 @@ ml_apar = argparse.ArgumentParser()
 # argument directive #
 ml_apar.add_argument( '-r', '--raster' , type=str, help='raster path'  )
 ml_apar.add_argument( '-d', '--dataset', type=str, help='dataset path' )
+ml_apar.add_argument( '-i', '--index'  , type=str, help='index path'   )
 
 # read argument and parameter #
 ml_args = ml_apar.parse_args()
@@ -73,7 +75,22 @@ def ml_raster_export( ml_data, ml_path ):
     with open( ml_path, 'ab' ) as ml_file:
 
         # export raster array #
-        numpy.array( ml_data, dtype=numpy.uint8 ).tofile( ml_file )    
+        numpy.array( ml_data, dtype=numpy.uint8 ).tofile( ml_file )   
+
+##
+##  script - index i/o operation
+## 
+
+def ml_raster_index( ml_index, ml_path ):
+
+    # replace minus by space #
+    ml_index = ml_index.replace( '-', ' ' )
+
+    # create output stream #
+    with open( ml_path, 'a' ) as ml_file:
+
+        # export index #
+        ml_file.write( ml_index )
 
 ##
 ##  script - main function
@@ -87,6 +104,9 @@ for ml_file in os.listdir( ml_args.raster ):
 
     # import and export raster in dataset #
     ml_raster_export( ml_raster_import( ml_args.raster + '/' + ml_file ), ml_args.dataset )
+
+    # export index in auxiliary data-set #
+    ml_raster_index( ml_file, ml_args.index )
 
 # display information #
 print( 'turing : done' )
