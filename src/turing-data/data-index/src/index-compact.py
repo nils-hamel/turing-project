@@ -90,7 +90,7 @@ def ml_raster_index( ml_index, ml_path ):
     with open( ml_path, 'a' ) as ml_file:
 
         # export index #
-        ml_file.write( ml_index )
+        ml_file.write( ml_index + '\n' )
 
 ##
 ##  script - main function
