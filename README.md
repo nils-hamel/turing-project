@@ -139,7 +139,7 @@ The _turing-project_ comes with the following package dependencies (Ubuntu 16.04
 
 and the following external dependencies :
 
-* eratosthene-suite (v0.3.5)
+* eratosthene-suite (v0.3.7)
 
 and with the following python3 modules :
 
