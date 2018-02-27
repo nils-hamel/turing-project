@@ -46,9 +46,11 @@ In addition to image data-set, index rasters are also considered. Index raster a
 
 Different type of neural networks are analysed in this approach of deep learning applied to geodesy and geography. The first type of neural networks are the auto-encoder used to determine the ability of neural networks to reduce and generalise sets of data.
 
-### Neural Networks : Auto-Encoders for image raster
+### Neural Networks : Auto-Encoders
 
 Auto-encoders are used to determine in which extend neural networks are able to learn and generalise specific data-sets in the domain of geodesy and geography. The goal of the study of auto-encoders is to verify their ability to understand the grammar of specific places and environments mainly from the point of view of interpretation and completion.
+
+#### Auto-encoders for image raster
 
 Single-layer auto-encoders for image raster :
 
@@ -78,9 +80,7 @@ Three-layer auto-encoders for image raster :
 * [icv-htv-htv-htv-oti-l2 : 3-layer tanh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-icv-htv-htv-htv-oti-l2)
 * [inv-hsv-hsv-hsv-osi-ce : 3-layer sigmoid-ce auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-hsv-hsv-hsv-osi-ce)
 
-### Neural Networks : Auto-Encoders for index raster
-
-Auto-encoders are used to determine in which extend neural networks are able to learn and generalise specific data-sets in the domain of geodesy and geography. The goal of the study of auto-encoders is to verify their ability to understand the grammar of specific places and environments mainly from the point of view of interpretation and completion.
+#### Auto-encoders for image raster
 
 Single-layer auto-encoders for index raster :
 
