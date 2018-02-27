@@ -52,6 +52,8 @@ Auto-encoders are used to determine in which extend neural networks are able to 
 
 #### Auto-encoders for image raster
 
+Auto-encoders for image raster are applied, trained and validated here on two dimensional data grids.
+
 Single-layer auto-encoders for image raster :
 
 * [inv-hsv-osi-l2 : 1-layer sigmoid-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-hsv-osi-l2)
@@ -80,7 +82,9 @@ Three-layer auto-encoders for image raster :
 * [icv-htv-htv-htv-oti-l2 : 3-layer tanh-l2 auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-icv-htv-htv-htv-oti-l2)
 * [inv-hsv-hsv-hsv-osi-ce : 3-layer sigmoid-ce auto-encoder for image raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-image/image-inv-hsv-hsv-hsv-osi-ce)
 
-#### Auto-encoders for image raster
+#### Auto-encoders for index raster
+
+Auto-encoders for index raster are applied, trained and validated here on three dimensional data grids.
 
 Single-layer auto-encoders for index raster :
 
