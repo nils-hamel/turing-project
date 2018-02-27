@@ -128,7 +128,7 @@ ml_figure = plt.figure()
 # create figure sub-plot #
 ml_plot = ml_figure.add_subplot( 111, projection='3d' )
 
-# create scatter plot #
+# create scatter plot : s=8 for w=64, s=24 for w=32 #
 ml_plot.scatter(ml_data[:,2], ml_data[:,1], ml_data[:,0], c=ml_data[:,0], s=8, marker='o', edgecolor='none', cmap='inferno', vmin=0.0, vmax=1.25 )
 
 # setting axis labels #

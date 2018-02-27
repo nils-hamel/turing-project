@@ -1,0 +1,104 @@
+#!/bin/bash
+
+## turing project
+##
+##     Nils Hamel - nils.hamel@bluewin.ch
+##     Copyright (c) 2016-2018 DHLAB, EPFL
+##
+## This program is free software: you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation, either version 3 of the License, or
+## (at your option) any later version.
+##
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+##
+##  script - script variables
+##
+
+# data-set path #
+ML_DATA=
+
+# data-set count#
+ML_COUNT=24
+
+# data-set width #
+ML_WIDTH=
+
+# exportation image #
+ML_EXPORT=
+
+# temporary directory #
+ML_TEMP=$(mktemp -d -t index-preview-XXXXXX)
+
+##
+##  script - arguments and parameters
+##
+
+function ml_args() {
+
+    # parsing arguments and parameters #
+    while [[ ${#} > 0 ]]; do
+
+        # read argument #
+        ml_arg="${1}"; shift
+
+        # switch on argument #
+        case ${ml_arg} in
+
+            --dataset|-d)
+                ML_DATA=${1}
+            shift;;
+
+            --count|-c)
+                ML_COUNT=${1}
+            shift;;
+
+            --width|-w)
+                ML_WIDTH=${1}
+            shift;;
+
+            --export|-e)
+                ML_EXPORT=${1}
+            shift;;
+
+        esac
+
+    done
+
+}
+
+##
+##  script - main function
+##
+
+# arguments and parameters #
+ml_args ${@}
+
+# create temporary directory #
+mkdir -p ${ML_TEMP}/export
+mkdir -p ${ML_TEMP}/plots
+
+# extract index sample #
+./index-extract.py --mode sample --dataset ${ML_DATA} --width ${ML_WIDTH} --raster ${ML_TEMP}/export/ --count ${ML_COUNT}
+
+# create sample plot #
+for ml_raster in ${ML_TEMP}/export/*.ras; do
+
+    # create element plot #
+    ./index-show.py --raster ${ml_raster} --plot ${ML_TEMP}/plots/$(basename ${ml_raster} .ras).png
+
+done
+
+# compose montage #
+montage ${ML_TEMP}/plots/*.png -tile 4 -geometry 500x500+1+1 -background gray ${ML_EXPORT}
+
+# remove temporary directory #
+rm -rf ${ML_TEMP}
+
