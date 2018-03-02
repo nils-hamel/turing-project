@@ -90,6 +90,18 @@ Single-layer auto-encoders for index raster :
 
 * [inv-hsv-osi-l2 : 1-layer sigmoid-l2 auto-encoder for index raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-auto/auto-index/index-inv-hsv-osi-l2)
 
+### Neural Networks : Trans-Coders
+
+Trans-coders are used to determine in which extend neural networks are able to learn and generalise on specific trans-coding task applied in the domain of geodesy and geography. Trans-coders are studied to analyse their abilities to understand sufficiently the grammar of specific places and environments to compute trans-coded representation such as super-scaled models.
+
+#### Trans-Coders for index raster
+
+Tans-coders for index raster are applied, trained and validated here on three dimensional data grids.
+
+Single-layer trans-coder for index raster :
+
+* [inv-hsv-osv-l2  : 1-layer sigmoid-l2 trans-coder for index raster](https://github.com/nils-hamel/turing-project/tree/master/src/turing-tran/tran-index/index-inv-hsv-osv-l2)
+
 ## Turing Project : Researches
 
 Researches are linked to the implemented neural networks and the data-sets on which they are applied. The following section give access to the research performed under the _Turing Project_.
