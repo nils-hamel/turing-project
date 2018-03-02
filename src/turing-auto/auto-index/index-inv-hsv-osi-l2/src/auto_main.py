@@ -224,10 +224,10 @@ elif ( ml_args.mode == 'auto' ):
     for ml_export in range( ml_data.shape[0] ):
 
         # export original raster #
-        td.ml_data_raster_save( ml_data[ml_export], ml_args.output + '/raster-{:06d}-original.ras'.format( ml_export + ml_args.start ) )
+        td.ml_data_raster_save( ml_data[ml_export], ml_args.output + '/raster-{:06d}-orig.ras'.format( ml_export + ml_args.start ) )
 
         # export auto-encoded raster #
-        td.ml_data_raster_save( ml_auto[ml_export], ml_args.output + '/raster-{:06d}.ras'.format( ml_export + ml_args.start ) )
+        td.ml_data_raster_save( ml_auto[ml_export], ml_args.output + '/raster-{:06d}-auto.ras'.format( ml_export + ml_args.start ) )
 
 # script mode #
 elif ( ml_args.mode == 'encode' ):
