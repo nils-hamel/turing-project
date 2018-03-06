@@ -30,7 +30,7 @@ import tensorflow as tf
 ##
 
 # create argument parser #
-ml_apar = argparse.ArgumentParser( description='Research auto-encoder built with tensorflow' )
+ml_apar = argparse.ArgumentParser( description='Turing-project' )
 
 # argument directive #
 ml_apar.add_argument( '-m', '--mode'   , type=str, help='script mode'  )
