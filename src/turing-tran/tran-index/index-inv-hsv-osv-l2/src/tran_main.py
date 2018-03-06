@@ -22,7 +22,7 @@ import argparse
 import numpy
 import sys
 import os
-import auto_data as td
+import tran_data as td
 import tensorflow as tf
 
 ##
